@@ -24,10 +24,6 @@
 	(kProperty)
 	(kRead)
 	(kWrite)
-	(kDefault)
-	(kNodefault)
-	(kStored)
-	(kIndex)
 
 	(kClass)
 	(kInterface)
@@ -41,6 +37,8 @@
 	(kOf)
 	(kHelper)
 	(kPacked)
+
+	(kInherited)
 
 	(kGeneric)
 	(kSpecialize)
@@ -61,7 +59,40 @@
 	(kPrivate)
 	(kStrict)
 
-	(kForward)
+	(kTry)
+	(kExcept)
+	(kFinally)
+	(kRaise)
+	(kOn)
+	(kCase)
+	(kWith)
+	(kGoto)
+] @keyword
+
+[
+	(kFor)
+	(kTo)
+	(kDownto)
+	(kDo)
+	(kWhile)
+	(kRepeat)
+	(kUntil)
+] @repeat
+
+[
+	(kIf)
+	(kThen)
+	(kElse)
+] @conditional
+	
+
+; -- Attributes
+
+[
+	(kDefault)
+	(kIndex)
+	(kNodefault)
+	(kStored)
 
 	(kStatic)
 	(kVirtual)
@@ -71,8 +102,9 @@
 	(kOverride)
 	(kOverload)
 	(kReintroduce)
-	(kInherited)
 	(kInline)
+
+	(kForward)
 
 	(kStdcall)
 	(kCdecl)
@@ -95,25 +127,7 @@
 	(kAssembler)
 	(kNostackframe)
 
-	(kFor)
-	(kTo)
-	(kDownto)
-	(kIf)
-	(kThen)
-	(kElse)
-	(kDo)
-	(kWhile)
-	(kRepeat)
-	(kUntil)
-	(kTry)
-	(kExcept)
-	(kFinally)
-	(kRaise)
-	(kOn)
-	(kCase)
-	(kWith)
-	(kGoto)
-] @keyword
+] @attribute
 
 ; -- Punctuation & operators
 
@@ -128,9 +142,12 @@
 	";"
 	","
 	":"
-	".."
 	(kEndDot)
 ] @punctuation.delimiter
+
+[
+	".."
+] @punctuation.special
 
 [
 	(kDot)
@@ -153,7 +170,6 @@
 	(kHat)
 ] @operator
 
-; technically operators, but better to render as reserved words
 [
 	(kOr)
 	(kXor)
@@ -166,19 +182,18 @@
 	(kIs)
 	(kAs)
 	(kIn)
-] @keyword
+] @keyword.operator
 
 ; -- Builtin constants
 
 [
 	(kTrue)
 	(kFalse)
-] @constant;
+] @boolean;
 
-; arguably a constant, but we highlight it as a keyword
 [
 	(kNil)
-] @keyword
+] @constant.builtin
 
 ; -- Literals
 
@@ -187,7 +202,8 @@
 
 ; -- Comments
 (comment)         @comment
-(pp)              @keyword
+; -- (pp)              @keyword
+(pp)              @function.macro
 
 ; -- Type declaration
 
@@ -212,6 +228,8 @@
 ; Treat property declarations like functions
 
 (declProp name: (identifier) @function)
+(declProp getter: (identifier) @property)
+(declProp setter: (identifier) @property)
 
 ; -- Function parameters
 
@@ -222,8 +240,15 @@
 (genericArg	name: (identifier) @type.parameter)
 (genericArg	type: (typeref) @type)
 
-(genericDot (identifier) @type)
-(genericDot (genericTpl entity: (identifier) @type))
+(declFunc name: (genericDot lhs: (identifier) @type))
+(declProc name: (genericDot lhs: (identifier) @type))
+(declType (genericDot (identifier) @type))
+
+(genericDot (genericTpl (identifier) @type))
+(genericDot (genericDot (identifier) @type))
+
+(genericTpl entity: (identifier) @type)
+(genericTpl entity: (genericDot (identifier) @type))
 
 ; -- Exception parameters
 (exceptionHandler variable: (identifier) @variable.parameter)
@@ -239,22 +264,21 @@
 	(label)
 ] @constant;
 
+; -- Fields
+
+(exprDot rhs: (identifier) @property)
+(exprDot rhs: (exprDot)    @property)
+(declClass   (declField name:(identifier) @property))
+(declSection (declField name:(identifier) @property))
+(declSection (declVars (declVar   name:(identifier) @property)))
+
+(recInitializerField name:(identifier) @property)
+
 
 ;;; ---------------------------------------------- ;;;
 ;;; EVERYTHING BELOW THIS IS OF QUESTIONABLE VALUE ;;;
 ;;; ---------------------------------------------- ;;;
 
-; -- Break, Continue & Exit
-; (Not ideal: ideally, there would be a way to check if these special
-; identifiers are shadowed by a local variable)
-(statement ((identifier) @keyword
- (#match? @keyword "^[eE][xX][iI][tT]$")))
-(statement (exprCall entity: ((identifier) @keyword
- (#match? @keyword "^[eE][xX][iI][tT]$"))))
-(statement ((identifier) @keyword
- (#match? @keyword "^[bB][rR][eE][aA][kK]$")))
-(statement ((identifier) @keyword
- (#match? @keyword "^[cC][oO][nN][tT][iI][nN][uU][eE]$")))
 
 ; -- Procedure name in calls with parentheses
 ; (Pascal doesn't require parentheses for procedure calls, so this will not
@@ -269,6 +293,8 @@
 ; foo.bar<t>
 (exprCall entity: (exprDot rhs: (exprTpl entity: (identifier) @function)))
 
+(inherited) @function
+
 ; -- Heuristic for procedure/function calls without parentheses
 ; (If a statement consists only of an identifier, assume it's a procedure)
 ; (This will still not match all procedure calls, and also may produce false
@@ -278,6 +304,18 @@
 (statement (exprDot rhs: (identifier) @function))
 (statement (exprTpl entity: (identifier) @function))
 (statement (exprDot rhs: (exprTpl entity: (identifier) @function)))
+
+; -- Break, Continue & Exit
+; (Not ideal: ideally, there would be a way to check if these special
+; identifiers are shadowed by a local variable)
+(statement ((identifier) @keyword.return
+ (#match? @keyword.return "^[eE][xX][iI][tT]$")))
+(statement (exprCall entity: ((identifier) @keyword.return
+ (#match? @keyword.return "^[eE][xX][iI][tT]$"))))
+(statement ((identifier) @repeat
+ (#match? @repeat "^[bB][rR][eE][aA][kK]$")))
+(statement ((identifier) @repeat
+ (#match? @repeat "^[cC][oO][nN][tT][iI][nN][uU][eE]$")))
 
 ; -- Variable & constant declarations
 ; (This is only questionable because we cannot detect types of identifiers
@@ -290,7 +328,7 @@
 
 ; -- Identifier type inferrence
 
-; vERY QUESTIONABLE: Highlighting of identifiers based on spelling
+; VERY QUESTIONABLE: Highlighting of identifiers based on spelling
 (exprBinary ((identifier) @constant
  (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
 (exprUnary ((identifier) @constant
@@ -311,14 +349,3 @@
 ; (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{1,2}[A-Z].+$")))
 ;(defaultValue ((identifier) @constant
 ; (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{1,2}[A-Z].+$")))
-
-; -- Use scoping information for additional highlighting. THIS NEED TO BE LAST.
-; FIXME: Right now this is buggy, because in case of something like this:
-;   procedure (x: integer);
-;   begin
-;     a.x;
-;   end;
-; The x in a.x would be highlighted as a parameter. Not what we want! We have to
-; come up with a more specific rule. Only the left-most identifier should be
-; matched.
-(identifier)      @identifier
