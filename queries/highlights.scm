@@ -264,6 +264,15 @@
 	(label)
 ] @constant;
 
+; -- Variable & constant declarations
+; (This is only questionable because we cannot detect types of identifiers
+; declared in other units, so the results will be inconsistent)
+
+(declVar name: (identifier) @variable)
+;(declField name: (identifier) @variable)
+(declConst name: (identifier) @constant)
+(declEnumValue name: (identifier) @constant)
+
 ; -- Fields
 
 (exprDot rhs: (identifier) @property)
@@ -317,35 +326,26 @@
 (statement ((identifier) @repeat
  (#match? @repeat "^[cC][oO][nN][tT][iI][nN][uU][eE]$")))
 
-; -- Variable & constant declarations
-; (This is only questionable because we cannot detect types of identifiers
-; declared in other units, so the results will be inconsistent)
-
-(declVar name: (identifier) @variable)
-(declField name: (identifier) @variable)
-(declConst name: (identifier) @constant)
-(declEnumValue name: (identifier) @constant)
-
 ; -- Identifier type inferrence
 
 ; VERY QUESTIONABLE: Highlighting of identifiers based on spelling
 (exprBinary ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (exprUnary ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (assignment rhs: ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (exprBrackets ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (exprParens ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
-;(exprDot rhs: ((identifier) @constant
-; (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{1,2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
+(exprDot rhs: ((identifier) @constant
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (exprTpl args: ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
 (exprArgs ((identifier) @constant
- (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2}[A-Z].+$")))
-;(declEnumValue ((identifier) @constant
-; (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{1,2}[A-Z].+$")))
-;(defaultValue ((identifier) @constant
-; (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{1,2}[A-Z].+$")))
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
+(declEnumValue ((identifier) @constant
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
+(defaultValue ((identifier) @constant
+ (#match? @constant "^[A-Z][A-Z0-9_]+$|^[a-z]{2,3}[A-Z].+$")))
