@@ -22,10 +22,4 @@
 (declType         name: (genericTpl entity: (identifier)     @local.definition))
 
 (declProc         name: (identifier)     @local.definition)
-
-(identifier)                             @local.reference
-
-(declProc         name: (identifier)     @local.definition)
-(declFunc         name: (identifier)     @local.definition)
-
 (identifier)                             @local.reference
