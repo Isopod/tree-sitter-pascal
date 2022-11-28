@@ -4552,10 +4552,6 @@
           "name": "declExports"
         },
         {
-          "type": "SYMBOL",
-          "name": "pp"
-        },
-        {
           "type": "PREC",
           "value": -1,
           "content": {
