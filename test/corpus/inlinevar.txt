@@ -1,0 +1,81 @@
+===
+Inline Variables
+===
+procedure Test;
+begin
+  var a : string;
+  var b : integer := 20;
+end;
+---
+(root
+(defProc
+  (declProc
+  (kProcedure)
+  (identifier))
+  (block
+  (kBegin)
+    (varDef
+     (kVar)
+     (identifier)
+     (typeref
+      (identifier)))
+    (assignment
+      (varAssignDef
+      (kVar)
+      (identifier)
+      (typeref
+        (identifier)))
+      (kAssign)
+      (literalNumber))
+  (kEnd))))
+
+===
+Inline Auto Variables
+===
+procedure Test;
+begin
+  var a := 10;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (kEnd))))
+===
+Inline Variables and Anonymous function
+===
+procedure Test;
+begin
+  var proc := procedure
+    begin
+    end;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (lambda
+     (kProcedure)
+     (block
+      (kBegin)
+      (kEnd))))
+   (kEnd))))

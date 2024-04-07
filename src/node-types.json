@@ -199,6 +199,10 @@
           {
             "type": "literalString",
             "named": true
+          },
+          {
+            "type": "varAssignDef",
+            "named": true
           }
         ]
       },
@@ -377,6 +381,10 @@
           "named": true
         },
         {
+          "type": "varDef",
+          "named": true
+        },
+        {
           "type": "while",
           "named": true
         },
@@ -457,6 +465,10 @@
         },
         {
           "type": "try",
+          "named": true
+        },
+        {
+          "type": "varDef",
           "named": true
         },
         {
@@ -623,6 +635,10 @@
           "named": true
         },
         {
+          "type": "varDef",
+          "named": true
+        },
+        {
           "type": "while",
           "named": true
         },
@@ -695,6 +711,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -3099,6 +3119,10 @@
           "named": true
         },
         {
+          "type": "varDef",
+          "named": true
+        },
+        {
           "type": "while",
           "named": true
         },
@@ -3171,6 +3195,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -4399,6 +4427,10 @@
           "named": true
         },
         {
+          "type": "varDef",
+          "named": true
+        },
+        {
           "type": "while",
           "named": true
         },
@@ -4471,6 +4503,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -4653,6 +4689,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -5233,6 +5273,10 @@
             "named": true
           },
           {
+            "type": "varDef",
+            "named": true
+          },
+          {
             "type": "while",
             "named": true
           },
@@ -5397,6 +5441,10 @@
             "named": true
           },
           {
+            "type": "varDef",
+            "named": true
+          },
+          {
             "type": "while",
             "named": true
           },
@@ -5460,6 +5508,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -5628,6 +5680,10 @@
         },
         {
           "type": "try",
+          "named": true
+        },
+        {
+          "type": "varDef",
           "named": true
         },
         {
@@ -7179,6 +7235,10 @@
           "named": true
         },
         {
+          "type": "varDef",
+          "named": true
+        },
+        {
           "type": "while",
           "named": true
         },
@@ -7561,6 +7621,66 @@
     }
   },
   {
+    "type": "varAssignDef",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typeref",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kVar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "varDef",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "typeref",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kVar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "while",
     "named": true,
     "fields": {
@@ -7622,6 +7742,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
@@ -7786,6 +7910,10 @@
           },
           {
             "type": "try",
+            "named": true
+          },
+          {
+            "type": "varDef",
             "named": true
           },
           {
