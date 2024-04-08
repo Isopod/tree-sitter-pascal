@@ -52,6 +52,57 @@ end;
     (literalNumber))
    (kEnd))))
 ===
+Inline For loop Variables
+===
+procedure Test;
+begin
+  for var a := 0 to 10 do
+  begin
+  end;
+  for var b : integer := 0 to 10 do
+  begin
+  end;
+end;
+---
+(root
+(defProc
+  (declProc
+    (kProcedure)
+    (identifier))
+  (block
+    (kBegin)
+    (for
+      (kFor)
+      (assignment
+        (varAssignDef
+          (kVar)
+          (identifier))
+        (kAssign)
+        (literalNumber))
+      (kTo)
+      (literalNumber)
+      (kDo)
+      (block
+        (kBegin)
+        (kEnd)))
+    (for
+      (kFor)
+      (assignment
+        (varAssignDef
+          (kVar)
+          (identifier)
+          (typeref
+            (identifier)))
+        (kAssign)
+        (literalNumber))
+      (kTo)
+      (literalNumber)
+      (kDo)
+      (block
+        (kBegin)
+        (kEnd)))
+    (kEnd))))
+===
 Inline Variables and Anonymous function
 ===
 procedure Test;
