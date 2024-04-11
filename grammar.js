@@ -295,12 +295,12 @@ module.exports = grammar({
 	],
 	
 	rules: {
-		root:               $ => choice(
+		root:               $ => optional(choice(
 			$.program,
 			$.library,
 			$.unit,
 			$._definitions // For include files
-		),
+		)),
 
 		// HIGH LEVEL ----------------------------------------------------------
 
