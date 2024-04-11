@@ -6,20 +6,28 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "program"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "program"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "library"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "unit"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_definitions"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "library"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "unit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_definitions"
+          "type": "BLANK"
         }
       ]
     },
@@ -283,65 +291,6 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
-        }
-      ]
-    },
-    "var": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "kVar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ":"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "type",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "typeref"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "kAssign"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
@@ -1299,65 +1248,6 @@
           },
           "named": true,
           "value": "asm"
-        }
-      ]
-    },
-    "varTr": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "kVar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ":"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "type",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "typeref"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "kAssign"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
