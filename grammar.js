@@ -119,15 +119,6 @@ function statements(trailing) {
 	let semicolon     = trailing ? [] : [';'];
 	
 	return Object.fromEntries([
-		[rn('var'),         $ => seq(
-			$.kVar,
-			$.identifier,
-			optional(seq(
-				':',
-				field('type', $.typeref)
-			)),
-			optional(seq($.kAssign, $._expr)
-		))],
 		[rn('if'),          $ => seq(
 			$.kIf, field('condition', $._expr), $.kThen,
 			field('then', lastStatement($))
