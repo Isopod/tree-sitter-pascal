@@ -33,6 +33,7 @@
 
 	(kClass)
 	(kInterface)
+	(kDispInterface)
 	(kObject)
 	(kRecord)
 	(kObjcclass)
@@ -57,7 +58,6 @@
 	(kReference)
 
 	(kInterface)
-	(kDispInterface)
 	(kImplementation)
 	(kInitialization)
 	(kFinalization)
