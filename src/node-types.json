@@ -1663,6 +1663,10 @@
           "named": true
         },
         {
+          "type": "kDispInterface",
+          "named": true
+        },
+        {
           "type": "kEnd",
           "named": true
         },
@@ -1996,7 +2000,77 @@
             "named": true
           },
           {
-            "type": "kDefault",
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kSpecialize",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      },
+      "dispid": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
             "named": true
           },
           {
@@ -2035,10 +2109,6 @@
         "types": [
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kRead",
             "named": true
           }
         ]
@@ -2093,10 +2163,6 @@
           },
           {
             "type": "kFalse",
-            "named": true
-          },
-          {
-            "type": "kImplements",
             "named": true
           },
           {
@@ -2174,10 +2240,6 @@
             "named": true
           },
           {
-            "type": "kIndex",
-            "named": true
-          },
-          {
             "type": "kNil",
             "named": true
           },
@@ -2219,10 +2281,6 @@
         "types": [
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kWrite",
             "named": true
           }
         ]
@@ -2284,10 +2342,6 @@
             "named": true
           },
           {
-            "type": "kStored",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -2325,11 +2379,39 @@
           "named": true
         },
         {
+          "type": "kDefault",
+          "named": true
+        },
+        {
+          "type": "kDispId",
+          "named": true
+        },
+        {
+          "type": "kImplements",
+          "named": true
+        },
+        {
+          "type": "kIndex",
+          "named": true
+        },
+        {
           "type": "kNodefault",
           "named": true
         },
         {
           "type": "kProperty",
+          "named": true
+        },
+        {
+          "type": "kRead",
+          "named": true
+        },
+        {
+          "type": "kStored",
+          "named": true
+        },
+        {
+          "type": "kWrite",
           "named": true
         },
         {
@@ -6153,10 +6235,89 @@
   {
     "type": "procAttribute",
     "named": true,
-    "fields": {},
+    "fields": {
+      "dispid": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kDispId",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kSpecialize",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "exprBinary",
@@ -7378,11 +7539,79 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
+          "type": "exprBinary",
+          "named": true
+        },
+        {
+          "type": "exprBrackets",
+          "named": true
+        },
+        {
+          "type": "exprCall",
+          "named": true
+        },
+        {
+          "type": "exprDot",
+          "named": true
+        },
+        {
+          "type": "exprParens",
+          "named": true
+        },
+        {
+          "type": "exprSubscript",
+          "named": true
+        },
+        {
+          "type": "exprTpl",
+          "named": true
+        },
+        {
+          "type": "exprUnary",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inherited",
+          "named": true
+        },
+        {
+          "type": "kDeprecated",
+          "named": true
+        },
+        {
+          "type": "kFalse",
+          "named": true
+        },
+        {
+          "type": "kNil",
+          "named": true
+        },
+        {
+          "type": "kSpecialize",
+          "named": true
+        },
+        {
+          "type": "kTrue",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "literalNumber",
+          "named": true
+        },
+        {
+          "type": "literalString",
           "named": true
         },
         {
@@ -8174,6 +8403,14 @@
   },
   {
     "type": "kDestructor",
+    "named": true
+  },
+  {
+    "type": "kDispId",
+    "named": true
+  },
+  {
+    "type": "kDispInterface",
     "named": true
   },
   {
