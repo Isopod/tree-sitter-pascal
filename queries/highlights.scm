@@ -29,6 +29,7 @@
 	(kNodefault)
 	(kStored)
 	(kIndex)
+	(kDispId)
 
 	(kClass)
 	(kInterface)
@@ -56,6 +57,7 @@
 	(kReference)
 
 	(kInterface)
+	(kDispInterface)
 	(kImplementation)
 	(kInitialization)
 	(kFinalization)
