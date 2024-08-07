@@ -762,7 +762,10 @@ module.exports = grammar({
 
 		declIntf:        $ => seq(
 			optional($.kPacked),
-			$.kInterface,
+			choice(
+				$.kInterface,
+				...enable_if(delphi, $.kDispInterface)
+			),
 			field('parent', optional(seq('(',delimited($.typeref),')'))),
 			field('guid', optional($.guid)),
 			optional($._declClass)
@@ -814,12 +817,13 @@ module.exports = grammar({
 			':',
 			field('type', $.type),
 			repeat(choice(
-				field('index', seq($.kIndex, $._expr)),
-				field('getter', seq($.kRead, $.identifier)),
-				field('setter', seq($.kWrite, $.identifier)),
-				field('implements', seq($.kImplements, delimited($._expr))),
-				field('defaultValue', seq($.kDefault, $._expr)),
-				field('stored', seq($.kStored, $._expr)),
+				seq($.kIndex, field('index', $._expr)),
+				...enable_if(delphi, seq($.kDispId, field('dispid', $._expr))),
+				seq($.kRead, field('getter', $.identifier)),
+				seq($.kWrite, field('setter', $.identifier)),
+				seq($.kImplements, field('implements', delimited($._expr))),
+				seq($.kDefault, field('defaultValue', $._expr)),
+				seq($.kStored, field('stored', $._expr)),
 				$.kNodefault,
 			)),
 			';',
@@ -971,6 +975,8 @@ module.exports = grammar({
 					$._expr
 				)
 			),
+
+			...enable_if(delphi, field('dispid', seq($.kDispId, $._expr))),
 		),
 
 		rttiAttributes:  $ => repeat1(seq(
@@ -1014,6 +1020,7 @@ module.exports = grammar({
 		kUnit:             $ => /[uU][nN][iI][tT]/,
 		kUses:             $ => /[uU][sS][eE][sS]/,
 		kInterface:        $ => /[iI][nN][tT][eE][rR][fF][aA][cC][eE]/,
+		kDispInterface:    $ => /[dD][iI][sS][pP][iI][nN][tT][eE][rR][fF][aA][cC][eE]/,
 		kImplementation:   $ => /[iI][mM][pP][lL][eE][mM][eE][nN][tT][aA][tT][iI][oO][nN]/,
 		kInitialization:   $ => /[iI][nN][iI][tT][iI][aA][lL][iI][zZ][aA][tT][iI][oO][nN]/,
 		kFinalization:     $ => /[fF][iI][nN][aA][lL][iI][zZ][aA][tT][iI][oO][nN]/,
@@ -1043,6 +1050,7 @@ module.exports = grammar({
 		kNodefault:        $ => /[nN][oO][dD][eE][fF][aA][uU][lL][tT]/,
 		kStored:           $ => /[sS][tT][oO][rR][eE][dD]/,
 		kIndex:            $ => /[iI][nN][dD][eE][xX]/,
+		kDispId:           $ => /[dD][iI][sS][pP][iI][dD]/,
 
 		kClass:            $ => /[cC][lL][aA][sS][sS]/,
 		kInterface:        $ => /[iI][nN][tT][eE][rR][fF][aA][cC][eE]/,
