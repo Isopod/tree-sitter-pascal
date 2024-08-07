@@ -530,10 +530,11 @@ module.exports = grammar({
 			$.declString,
 			$.declProcRef,
 		)),
-		
+
 		typeref:         $ => seq(
 			...enable_if(fpc, field('_dummy', optional($.kSpecialize))),
-			$._typeref
+			$._typeref,
+			...enable_if(delphi, optional(seq($.kDeprecated, $._expr))),
 		),
 
 		_typeref:        $ => choice(
