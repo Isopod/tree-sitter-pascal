@@ -1,0 +1,41 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "pascal",
+      "camelcase": "Pascal",
+      "title": "Pascal",
+      "scope": "source.pascal",
+      "file-types": [
+        "pp",
+        "lpr",
+        "dpr",
+        "pas"
+      ],
+      "injection-regex": "^pascal$",
+      "class-name": "TreeSitterPascal"
+    }
+  ],
+  "metadata": {
+    "version": "0.9.1",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for Pascal",
+    "authors": [
+      {
+        "name": "Philip Zander"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Isopod/tree-sitter-pascal"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
