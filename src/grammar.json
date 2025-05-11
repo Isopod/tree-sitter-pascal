@@ -4006,7 +4006,8 @@
               "type": "ALIAS",
               "content": {
                 "type": "PATTERN",
-                "value": "\\{\\$[iI][fF][^}]*\\}"
+                "value": "\\{\\$if[^}]*\\}",
+                "flags": "i"
               },
               "named": true,
               "value": "pp"
@@ -4057,7 +4058,8 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "PATTERN",
-                      "value": "\\{\\$[eE][lL][sS][eE][^}]*\\}"
+                      "value": "\\{\\$else[^}]*\\}",
+                      "flags": "i"
                     },
                     "named": true,
                     "value": "pp"
@@ -4106,7 +4108,8 @@
               "type": "ALIAS",
               "content": {
                 "type": "PATTERN",
-                "value": "\\{\\$[eE][nN][dD][^}]*\\}"
+                "value": "\\{\\$end[^}]*\\}",
+                "flags": "i"
               },
               "named": true,
               "value": "pp"
@@ -4762,7 +4765,8 @@
                   "type": "ALIAS",
                   "content": {
                     "type": "PATTERN",
-                    "value": "\\{\\$[iI][fF][^}]*\\}"
+                    "value": "\\{\\$if[^}]*\\}",
+                    "flags": "i"
                   },
                   "named": true,
                   "value": "pp"
@@ -4823,7 +4827,8 @@
                         "type": "ALIAS",
                         "content": {
                           "type": "PATTERN",
-                          "value": "\\{\\$[eE][lL][sS][eE][^}]*\\}"
+                          "value": "\\{\\$else[^}]*\\}",
+                          "flags": "i"
                         },
                         "named": true,
                         "value": "pp"
@@ -4882,7 +4887,8 @@
                   "type": "ALIAS",
                   "content": {
                     "type": "PATTERN",
-                    "value": "\\{\\$[eE][nN][dD][^}]*\\}"
+                    "value": "\\{\\$end[^}]*\\}",
+                    "flags": "i"
                   },
                   "named": true,
                   "value": "pp"
@@ -8740,39 +8746,48 @@
     },
     "kProgram": {
       "type": "PATTERN",
-      "value": "[pP][rR][oO][gG][rR][aA][mM]"
+      "value": "program",
+      "flags": "i"
     },
     "kLibrary": {
       "type": "PATTERN",
-      "value": "[lL][iI][bB][rR][aA][rR][yY]"
+      "value": "library",
+      "flags": "i"
     },
     "kUnit": {
       "type": "PATTERN",
-      "value": "[uU][nN][iI][tT]"
+      "value": "unit",
+      "flags": "i"
     },
     "kUses": {
       "type": "PATTERN",
-      "value": "[uU][sS][eE][sS]"
+      "value": "uses",
+      "flags": "i"
     },
     "kInterface": {
       "type": "PATTERN",
-      "value": "[iI][nN][tT][eE][rR][fF][aA][cC][eE]"
+      "value": "interface",
+      "flags": "i"
     },
     "kDispInterface": {
       "type": "PATTERN",
-      "value": "[dD][iI][sS][pP][iI][nN][tT][eE][rR][fF][aA][cC][eE]"
+      "value": "dispinterface",
+      "flags": "i"
     },
     "kImplementation": {
       "type": "PATTERN",
-      "value": "[iI][mM][pP][lL][eE][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
+      "value": "implementation",
+      "flags": "i"
     },
     "kInitialization": {
       "type": "PATTERN",
-      "value": "[iI][nN][iI][tT][iI][aA][lL][iI][zZ][aA][tT][iI][oO][nN]"
+      "value": "initialization",
+      "flags": "i"
     },
     "kFinalization": {
       "type": "PATTERN",
-      "value": "[fF][iI][nN][aA][lL][iI][zZ][aA][tT][iI][oO][nN]"
+      "value": "finalization",
+      "flags": "i"
     },
     "kEndDot": {
       "type": "STRING",
@@ -8780,151 +8795,188 @@
     },
     "kBegin": {
       "type": "PATTERN",
-      "value": "[bB][eE][gG][iI][nN]"
+      "value": "begin",
+      "flags": "i"
     },
     "kEnd": {
       "type": "PATTERN",
-      "value": "[eE][nN][dD]"
+      "value": "end",
+      "flags": "i"
     },
     "kAsm": {
       "type": "PATTERN",
-      "value": "[aA][sS][mM]"
+      "value": "asm",
+      "flags": "i"
     },
     "kVar": {
       "type": "PATTERN",
-      "value": "[vV][aA][rR]"
+      "value": "var",
+      "flags": "i"
     },
     "kThreadvar": {
       "type": "PATTERN",
-      "value": "[tT][hH][rR][eE][aA][dD][vV][aA][rR]"
+      "value": "threadvar",
+      "flags": "i"
     },
     "kConst": {
       "type": "PATTERN",
-      "value": "[cC][oO][nN][sS][tT]"
+      "value": "const",
+      "flags": "i"
     },
     "kConstref": {
       "type": "PATTERN",
-      "value": "[cC][oO][nN][sS][tT][rR][eE][fF]"
+      "value": "constref",
+      "flags": "i"
     },
     "kResourcestring": {
       "type": "PATTERN",
-      "value": "[rR][eE][sS][oO][uU][rR][cC][eE][sS][tT][rR][iI][nN][gG]"
+      "value": "resourcestring",
+      "flags": "i"
     },
     "kOut": {
       "type": "PATTERN",
-      "value": "[oO][uU][tT]"
+      "value": "out",
+      "flags": "i"
     },
     "kType": {
       "type": "PATTERN",
-      "value": "[tT][yY][pP][eE]"
+      "value": "type",
+      "flags": "i"
     },
     "kLabel": {
       "type": "PATTERN",
-      "value": "[lL][aA][bB][eE][lL]"
+      "value": "label",
+      "flags": "i"
     },
     "kExports": {
       "type": "PATTERN",
-      "value": "[eE][xX][pP][oO][rR][tT][sS]"
+      "value": "exports",
+      "flags": "i"
     },
     "kAbsolute": {
       "type": "PATTERN",
-      "value": "[aA][bB][sS][oO][lL][uU][tT][eE]"
+      "value": "absolute",
+      "flags": "i"
     },
     "kProperty": {
       "type": "PATTERN",
-      "value": "[pP][rR][oO][pP][eE][rR][tT][yY]"
+      "value": "property",
+      "flags": "i"
     },
     "kRead": {
       "type": "PATTERN",
-      "value": "[rR][eE][aA][dD]"
+      "value": "read",
+      "flags": "i"
     },
     "kWrite": {
       "type": "PATTERN",
-      "value": "[wW][rR][iI][tT][eE]"
+      "value": "write",
+      "flags": "i"
     },
     "kImplements": {
       "type": "PATTERN",
-      "value": "[iI][mM][pP][lL][eE][mM][eE][nN][tT][sS]"
+      "value": "implements",
+      "flags": "i"
     },
     "kDefault": {
       "type": "PATTERN",
-      "value": "[dD][eE][fF][aA][uU][lL][tT]"
+      "value": "default",
+      "flags": "i"
     },
     "kNodefault": {
       "type": "PATTERN",
-      "value": "[nN][oO][dD][eE][fF][aA][uU][lL][tT]"
+      "value": "nodefault",
+      "flags": "i"
     },
     "kStored": {
       "type": "PATTERN",
-      "value": "[sS][tT][oO][rR][eE][dD]"
+      "value": "stored",
+      "flags": "i"
     },
     "kIndex": {
       "type": "PATTERN",
-      "value": "[iI][nN][dD][eE][xX]"
+      "value": "index",
+      "flags": "i"
     },
     "kDispId": {
       "type": "PATTERN",
-      "value": "[dD][iI][sS][pP][iI][dD]"
+      "value": "dispid",
+      "flags": "i"
     },
     "kClass": {
       "type": "PATTERN",
-      "value": "[cC][lL][aA][sS][sS]"
+      "value": "class",
+      "flags": "i"
     },
     "kObject": {
       "type": "PATTERN",
-      "value": "[oO][bB][jJ][eE][cC][tT]"
+      "value": "object",
+      "flags": "i"
     },
     "kRecord": {
       "type": "PATTERN",
-      "value": "[rR][eE][cC][oO][rR][dD]"
+      "value": "record",
+      "flags": "i"
     },
     "kObjcclass": {
       "type": "PATTERN",
-      "value": "[oO][bB][jJ][cC][cC][lL][aA][sS][sS]"
+      "value": "objcclass",
+      "flags": "i"
     },
     "kObjccategory": {
       "type": "PATTERN",
-      "value": "[oO][bB][jJ][cC][cC][aA][tT][eE][gG][oO][rR][yY]"
+      "value": "objccategory",
+      "flags": "i"
     },
     "kObjcprotocol": {
       "type": "PATTERN",
-      "value": "[oO][bB][jJ][cC][pP][rR][oO][tT][oO][cC][oO][lL]"
+      "value": "objcprotocol",
+      "flags": "i"
     },
     "kArray": {
       "type": "PATTERN",
-      "value": "[aA][rR][rR][aA][yY]"
+      "value": "array",
+      "flags": "i"
     },
     "kFile": {
       "type": "PATTERN",
-      "value": "[fF][iI][lL][eE]"
+      "value": "file",
+      "flags": "i"
     },
     "kString": {
       "type": "PATTERN",
-      "value": "[sS][tT][rR][iI][nN][gG]"
+      "value": "string",
+      "flags": "i"
     },
     "kSet": {
       "type": "PATTERN",
-      "value": "[sS][eE][tT]"
+      "value": "set",
+      "flags": "i"
     },
     "kOf": {
       "type": "PATTERN",
-      "value": "[oO][fF]"
+      "value": "of",
+      "flags": "i"
     },
     "kHelper": {
       "type": "PATTERN",
-      "value": "[hH][eE][lL][pP][eE][rR]"
+      "value": "helper",
+      "flags": "i"
     },
     "kPacked": {
       "type": "PATTERN",
-      "value": "[pP][aA][cC][kK][eE][dD]"
+      "value": "packed",
+      "flags": "i"
     },
     "kGeneric": {
       "type": "PATTERN",
-      "value": "[gG][eE][nN][eE][rR][iI][cC]"
+      "value": "generic",
+      "flags": "i"
     },
     "kSpecialize": {
       "type": "PATTERN",
-      "value": "[sS][pP][eE][cC][iI][aA][lL][iI][zZ][eE]"
+      "value": "specialize",
+      "flags": "i"
     },
     "kDot": {
       "type": "STRING",
@@ -9000,383 +9052,478 @@
     },
     "kOr": {
       "type": "PATTERN",
-      "value": "[oO][rR]"
+      "value": "or",
+      "flags": "i"
     },
     "kXor": {
       "type": "PATTERN",
-      "value": "[xX][oO][rR]"
+      "value": "xor",
+      "flags": "i"
     },
     "kDiv": {
       "type": "PATTERN",
-      "value": "[dD][iI][vV]"
+      "value": "div",
+      "flags": "i"
     },
     "kMod": {
       "type": "PATTERN",
-      "value": "[mM][oO][dD]"
+      "value": "mod",
+      "flags": "i"
     },
     "kAnd": {
       "type": "PATTERN",
-      "value": "[aA][nN][dD]"
+      "value": "and",
+      "flags": "i"
     },
     "kShl": {
       "type": "PATTERN",
-      "value": "[sS][hH][lL]"
+      "value": "shl",
+      "flags": "i"
     },
     "kShr": {
       "type": "PATTERN",
-      "value": "[sS][hH][rR]"
+      "value": "shr",
+      "flags": "i"
     },
     "kNot": {
       "type": "PATTERN",
-      "value": "[nN][oO][tT]"
+      "value": "not",
+      "flags": "i"
     },
     "kIs": {
       "type": "PATTERN",
-      "value": "[iI][sS]"
+      "value": "is",
+      "flags": "i"
     },
     "kAs": {
       "type": "PATTERN",
-      "value": "[aA][sS]"
+      "value": "as",
+      "flags": "i"
     },
     "kIn": {
       "type": "PATTERN",
-      "value": "[iI][nN]"
+      "value": "in",
+      "flags": "i"
     },
     "kFor": {
       "type": "PATTERN",
-      "value": "[fF][oO][rR]"
+      "value": "for",
+      "flags": "i"
     },
     "kTo": {
       "type": "PATTERN",
-      "value": "[tT][oO]"
+      "value": "to",
+      "flags": "i"
     },
     "kDownto": {
       "type": "PATTERN",
-      "value": "[dD][oO][wW][nN][tT][oO]"
+      "value": "downto",
+      "flags": "i"
     },
     "kIf": {
       "type": "PATTERN",
-      "value": "[iI][fF]"
+      "value": "if",
+      "flags": "i"
     },
     "kThen": {
       "type": "PATTERN",
-      "value": "[tT][hH][eE][nN]"
+      "value": "then",
+      "flags": "i"
     },
     "kElse": {
       "type": "PATTERN",
-      "value": "[eE][lL][sS][eE]"
+      "value": "else",
+      "flags": "i"
     },
     "kDo": {
       "type": "PATTERN",
-      "value": "[dD][oO]"
+      "value": "do",
+      "flags": "i"
     },
     "kWhile": {
       "type": "PATTERN",
-      "value": "[wW][hH][iI][lL][eE]"
+      "value": "while",
+      "flags": "i"
     },
     "kRepeat": {
       "type": "PATTERN",
-      "value": "[rR][eE][pP][eE][aA][tT]"
+      "value": "repeat",
+      "flags": "i"
     },
     "kUntil": {
       "type": "PATTERN",
-      "value": "[uU][nN][tT][iI][lL]"
+      "value": "until",
+      "flags": "i"
     },
     "kTry": {
       "type": "PATTERN",
-      "value": "[tT][rR][yY]"
+      "value": "try",
+      "flags": "i"
     },
     "kExcept": {
       "type": "PATTERN",
-      "value": "[eE][xX][cC][eE][pP][tT]"
+      "value": "except",
+      "flags": "i"
     },
     "kFinally": {
       "type": "PATTERN",
-      "value": "[fF][iI][nN][aA][lL][lL][yY]"
+      "value": "finally",
+      "flags": "i"
     },
     "kRaise": {
       "type": "PATTERN",
-      "value": "[rR][aA][iI][sS][eE]"
+      "value": "raise",
+      "flags": "i"
     },
     "kOn": {
       "type": "PATTERN",
-      "value": "[oO][nN]"
+      "value": "on",
+      "flags": "i"
     },
     "kCase": {
       "type": "PATTERN",
-      "value": "[cC][aA][sS][eE]"
+      "value": "case",
+      "flags": "i"
     },
     "kWith": {
       "type": "PATTERN",
-      "value": "[wW][iI][tT][hH]"
+      "value": "with",
+      "flags": "i"
     },
     "kGoto": {
       "type": "PATTERN",
-      "value": "[gG][oO][tT][oO]"
+      "value": "goto",
+      "flags": "i"
     },
     "kFunction": {
       "type": "PATTERN",
-      "value": "[fF][uU][nN][cC][tT][iI][oO][nN]"
+      "value": "function",
+      "flags": "i"
     },
     "kProcedure": {
       "type": "PATTERN",
-      "value": "[pP][rR][oO][cC][eE][dD][uU][rR][eE]"
+      "value": "procedure",
+      "flags": "i"
     },
     "kConstructor": {
       "type": "PATTERN",
-      "value": "[cC][oO][nN][sS][tT][rR][uU][cC][tT][oO][rR]"
+      "value": "constructor",
+      "flags": "i"
     },
     "kDestructor": {
       "type": "PATTERN",
-      "value": "[dD][eE][sS][tT][rR][uU][cC][tT][oO][rR]"
+      "value": "destructor",
+      "flags": "i"
     },
     "kOperator": {
       "type": "PATTERN",
-      "value": "[oO][pP][eE][rR][aA][tT][oO][rR]"
+      "value": "operator",
+      "flags": "i"
     },
     "kReference": {
       "type": "PATTERN",
-      "value": "[rR][eE][fF][eE][rR][eE][nN][cC][eE]"
+      "value": "reference",
+      "flags": "i"
     },
     "kPublished": {
       "type": "PATTERN",
-      "value": "[pP][uU][bB][lL][iI][sS][hH][eE][dD]"
+      "value": "published",
+      "flags": "i"
     },
     "kPublic": {
       "type": "PATTERN",
-      "value": "[pP][uU][bB][lL][iI][cC]"
+      "value": "public",
+      "flags": "i"
     },
     "kProtected": {
       "type": "PATTERN",
-      "value": "[pP][rR][oO][tT][eE][cC][tT][eE][dD]"
+      "value": "protected",
+      "flags": "i"
     },
     "kPrivate": {
       "type": "PATTERN",
-      "value": "[pP][rR][iI][vV][aA][tT][eE]"
+      "value": "private",
+      "flags": "i"
     },
     "kStrict": {
       "type": "PATTERN",
-      "value": "[sS][tT][rR][iI][cC][tT]"
+      "value": "strict",
+      "flags": "i"
     },
     "kRequired": {
       "type": "PATTERN",
-      "value": "[rR][eE][qQ][uU][iI][rR][eE][dD]"
+      "value": "required",
+      "flags": "i"
     },
     "kOptional": {
       "type": "PATTERN",
-      "value": "[oO][pP][tT][iI][oO][nN][aA][lL]"
+      "value": "optional",
+      "flags": "i"
     },
     "kForward": {
       "type": "PATTERN",
-      "value": "[fF][oO][rR][wW][aA][rR][dD]"
+      "value": "forward",
+      "flags": "i"
     },
     "kStatic": {
       "type": "PATTERN",
-      "value": "[sS][tT][aA][tT][iI][cC]"
+      "value": "static",
+      "flags": "i"
     },
     "kVirtual": {
       "type": "PATTERN",
-      "value": "[vV][iI][rR][tT][uU][aA][lL]"
+      "value": "virtual",
+      "flags": "i"
     },
     "kAbstract": {
       "type": "PATTERN",
-      "value": "[aA][bB][sS][tT][rR][aA][cC][tT]"
+      "value": "abstract",
+      "flags": "i"
     },
     "kSealed": {
       "type": "PATTERN",
-      "value": "[sS][eE][lL][eE][dD]"
+      "value": "seled",
+      "flags": "i"
     },
     "kDynamic": {
       "type": "PATTERN",
-      "value": "[dD][yY][nN][aA][mM][iI][cC]"
+      "value": "dynamic",
+      "flags": "i"
     },
     "kOverride": {
       "type": "PATTERN",
-      "value": "[oO][vV][eE][rR][rR][iI][dD][eE]"
+      "value": "override",
+      "flags": "i"
     },
     "kOverload": {
       "type": "PATTERN",
-      "value": "[oO][vV][eE][rR][lL][oO][aA][dD]"
+      "value": "overload",
+      "flags": "i"
     },
     "kReintroduce": {
       "type": "PATTERN",
-      "value": "[rR][eE][iI][nN][tT][rR][oO][dD][uU][cC][eE]"
+      "value": "reintroduce",
+      "flags": "i"
     },
     "kInherited": {
       "type": "PATTERN",
-      "value": "[iI][nN][hH][eE][rR][iI][tT][eE][dD]"
+      "value": "inherited",
+      "flags": "i"
     },
     "kInline": {
       "type": "PATTERN",
-      "value": "[iI][nN][lL][iI][nN][eE]"
+      "value": "inline",
+      "flags": "i"
     },
     "kStdcall": {
       "type": "PATTERN",
-      "value": "[sS][tT][dD][cC][aA][lL][lL]"
+      "value": "stdcall",
+      "flags": "i"
     },
     "kCdecl": {
       "type": "PATTERN",
-      "value": "[cC][dD][eE][cC][lL]"
+      "value": "cdecl",
+      "flags": "i"
     },
     "kCppdecl": {
       "type": "PATTERN",
-      "value": "[cC][pP][pP][dD][eE][cC][lL]"
+      "value": "cppdecl",
+      "flags": "i"
     },
     "kPascal": {
       "type": "PATTERN",
-      "value": "[pP][aA][sS][cC][aA][lL]"
+      "value": "pascal",
+      "flags": "i"
     },
     "kRegister": {
       "type": "PATTERN",
-      "value": "[rR][eE][gG][iI][sS][tT][eE][rR]"
+      "value": "register",
+      "flags": "i"
     },
     "kMwpascal": {
       "type": "PATTERN",
-      "value": "[mM][wW][pP][aA][sS][cC][aA][lL]"
+      "value": "mwpascal",
+      "flags": "i"
     },
     "kExternal": {
       "type": "PATTERN",
-      "value": "[eE][xX][tT][eE][rR][nN][aA][lL]"
+      "value": "external",
+      "flags": "i"
     },
     "kName": {
       "type": "PATTERN",
-      "value": "[nN][aA][mM][eE]"
+      "value": "name",
+      "flags": "i"
     },
     "kMessage": {
       "type": "PATTERN",
-      "value": "[mM][eE][sS][sS][aA][gG][eE]"
+      "value": "message",
+      "flags": "i"
     },
     "kDeprecated": {
       "type": "PATTERN",
-      "value": "[dD][eE][pP][rR][eE][cC][aA][tT][eE][dD]"
+      "value": "deprecated",
+      "flags": "i"
     },
     "kExperimental": {
       "type": "PATTERN",
-      "value": "[eE][xX][pP][eE][rR][iI][mM][eE][nN][tT][aA][lL]"
+      "value": "experimental",
+      "flags": "i"
     },
     "kPlatform": {
       "type": "PATTERN",
-      "value": "[pP][lL][aA][tT][fF][oO][rR][mM]"
+      "value": "platform",
+      "flags": "i"
     },
     "kUnimplemented": {
       "type": "PATTERN",
-      "value": "[uU][nN][iI][mM][pP][lL][eE][mM][eE][nN][tT][eE][dD]"
+      "value": "unimplemented",
+      "flags": "i"
     },
     "kCvar": {
       "type": "PATTERN",
-      "value": "[cC][vV][aA][rR]"
+      "value": "cvar",
+      "flags": "i"
     },
     "kExport": {
       "type": "PATTERN",
-      "value": "[eE][xX][pP][oO][rR][tT]"
+      "value": "export",
+      "flags": "i"
     },
     "kFar": {
       "type": "PATTERN",
-      "value": "[fF][aA][rR]"
+      "value": "far",
+      "flags": "i"
     },
     "kNear": {
       "type": "PATTERN",
-      "value": "[nN][eE][aA][rR]"
+      "value": "near",
+      "flags": "i"
     },
     "kSafecall": {
       "type": "PATTERN",
-      "value": "[sS][aA][fF][eE][cC][aA][lL]"
+      "value": "safecal",
+      "flags": "i"
     },
     "kAssembler": {
       "type": "PATTERN",
-      "value": "[aA][sS][sS][eE][mM][bB][lL][eE][rR]"
+      "value": "assembler",
+      "flags": "i"
     },
     "kNostackframe": {
       "type": "PATTERN",
-      "value": "[nN][oO][sS][tT][aA][cC][kK][fF][rR][aA][mM][eE]"
+      "value": "nostackframe",
+      "flags": "i"
     },
     "kInterrupt": {
       "type": "PATTERN",
-      "value": "[iI][nN][tT][eE][rR][rR][uU][pP][tT]"
+      "value": "interrupt",
+      "flags": "i"
     },
     "kNoreturn": {
       "type": "PATTERN",
-      "value": "[nN][oO][rR][eE][tT][uU][rR][nN]"
+      "value": "noreturn",
+      "flags": "i"
     },
     "kIocheck": {
       "type": "PATTERN",
-      "value": "[iI][oO][cC][hH][eE][cC][kK]"
+      "value": "iocheck",
+      "flags": "i"
     },
     "kLocal": {
       "type": "PATTERN",
-      "value": "[lL][oO][cC][aA][lL]"
+      "value": "local",
+      "flags": "i"
     },
     "kHardfloat": {
       "type": "PATTERN",
-      "value": "[hH][aA][rR][dD][fF][lL][oO][aA][tT]"
+      "value": "hardfloat",
+      "flags": "i"
     },
     "kSoftfloat": {
       "type": "PATTERN",
-      "value": "[sS][oO][fF][tT][fF][lL][oO][aA][tT]"
+      "value": "softfloat",
+      "flags": "i"
     },
     "kMs_abi_default": {
       "type": "PATTERN",
-      "value": "[mM][sS]_[aA][bB][iI]_[dD][eE][fF][aA][uU][lL][tT]"
+      "value": "ms_abi_default",
+      "flags": "i"
     },
     "kMs_abi_cdecl": {
       "type": "PATTERN",
-      "value": "[mM][sS]_[aA][bB][iI]_[cC][dD][eE][cC][lL]"
+      "value": "ms_abi_cdecl",
+      "flags": "i"
     },
     "kSaveregisters": {
       "type": "PATTERN",
-      "value": "[sS][aA][vV][eE][rR][eE][gG][iI][sS][tT][eE][rR][sS]"
+      "value": "saveregisters",
+      "flags": "i"
     },
     "kSysv_abi_default": {
       "type": "PATTERN",
-      "value": "[sS][yY][sS][vV]_[aA][bB][iI]_[dD][eE][fF][aA][uU][lL][tT]"
+      "value": "sysv_abi_default",
+      "flags": "i"
     },
     "kSysv_abi_cdecl": {
       "type": "PATTERN",
-      "value": "[sS][yY][sS][vV]_[aA][bB][iI]_[cC][dD][eE][cC][lL]"
+      "value": "sysv_abi_cdecl",
+      "flags": "i"
     },
     "kVectorcall": {
       "type": "PATTERN",
-      "value": "[vV][eE][cC][tT][oO][rR][cC][aA][lL][lL]"
+      "value": "vectorcall",
+      "flags": "i"
     },
     "kVarargs": {
       "type": "PATTERN",
-      "value": "[vV][aA][rR][aA][rR][gG][sS]"
+      "value": "varargs",
+      "flags": "i"
     },
     "kWinapi": {
       "type": "PATTERN",
-      "value": "[wW][iI][nN][aA][pP][iI]"
+      "value": "winapi",
+      "flags": "i"
     },
     "kAlias": {
       "type": "PATTERN",
-      "value": "[aA][lL][iI][aA][sS]"
+      "value": "alias",
+      "flags": "i"
     },
     "kDelayed": {
       "type": "PATTERN",
-      "value": "[dD][eE][lL][aA][yY][eE][dD]"
+      "value": "delayed",
+      "flags": "i"
     },
     "kNil": {
       "type": "PATTERN",
-      "value": "[nN][iI][lL]"
+      "value": "nil",
+      "flags": "i"
     },
     "kTrue": {
       "type": "PATTERN",
-      "value": "[tT][rR][uU][eE]"
+      "value": "true",
+      "flags": "i"
     },
     "kFalse": {
       "type": "PATTERN",
-      "value": "[fF][aA][lL][sS][eE]"
+      "value": "false",
+      "flags": "i"
     },
     "kIfdef": {
       "type": "PATTERN",
-      "value": "[iI][fF][dD][eE][fF]"
+      "value": "ifdef",
+      "flags": "i"
     },
     "kIfndef": {
       "type": "PATTERN",
-      "value": "[iI][fF][nN][dD][eE][fF]"
+      "value": "ifndef",
+      "flags": "i"
     },
     "kEndif": {
       "type": "PATTERN",
-      "value": "[eE][nN][dD][iI][fF]"
+      "value": "endif",
+      "flags": "i"
     },
     "identifier": {
       "type": "PATTERN",
@@ -9426,13 +9573,8 @@
             ]
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[(][*]([^*]*[*]+[^)*])*[^*]*[*]+[)]"
-              }
-            ]
+            "type": "PATTERN",
+            "value": "[(][*]([^*]*[*]+[^)*])*[^*]*[*]+[)]"
           }
         ]
       }
@@ -9482,9 +9624,6 @@
     ],
     [
       "declTypes"
-    ],
-    [
-      "lambda"
     ]
   ],
   "precedences": [],
