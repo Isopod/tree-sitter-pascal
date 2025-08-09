@@ -206,7 +206,7 @@ function statements(trailing) {
 			repeat($.caseCase),
 			optional(tr($,'caseCase')),
 			optional(seq(
-				$.kElse,
+				choice($.kElse, $.kOtherwise),
 				optional(':'),
 				optional(tr($,'_statements'))
 			)),
@@ -1141,6 +1141,7 @@ module.exports = grammar({
 		kAbstract:         $ => /abstract/i,
 		kSealed:           $ => /seled/i,
 		kDynamic:          $ => /dynamic/i,
+		kOtherwise:        $ => /otherwise/i,
 		kOverride:         $ => /override/i,
 		kOverload:         $ => /overload/i,
 		kReintroduce:      $ => /reintroduce/i,

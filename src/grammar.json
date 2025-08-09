@@ -866,8 +866,17 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "kElse"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "kElse"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "kOtherwise"
+                      }
+                    ]
                   },
                   {
                     "type": "CHOICE",
@@ -1879,8 +1888,17 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "kElse"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "kElse"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "kOtherwise"
+                      }
+                    ]
                   },
                   {
                     "type": "CHOICE",
@@ -9290,6 +9308,11 @@
       "value": "dynamic",
       "flags": "i"
     },
+    "kOtherwise": {
+      "type": "PATTERN",
+      "value": "otherwise",
+      "flags": "i"
+    },
     "kOverride": {
       "type": "PATTERN",
       "value": "override",
@@ -9629,5 +9652,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
