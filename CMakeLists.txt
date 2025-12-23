@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-pascal
-        VERSION "0.10.0"
+        VERSION "0.10.1"
         DESCRIPTION "Tree-sitter grammar for Pascal"
         HOMEPAGE_URL "https://github.com/isopod/tree-sitter-pascal"
         LANGUAGES C)

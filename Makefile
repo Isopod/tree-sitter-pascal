@@ -1,4 +1,4 @@
-VERSION := 0.10.0
+VERSION := 0.10.1
 
 LANGUAGE_NAME := tree-sitter-pascal
 
