@@ -595,6 +595,10 @@
           "named": true
         },
         {
+          "type": "kOtherwise",
+          "named": true
+        },
+        {
           "type": "kSpecialize",
           "named": true
         },
@@ -8288,7 +8292,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "identifier",
@@ -8687,6 +8692,10 @@
     "named": true
   },
   {
+    "type": "kOtherwise",
+    "named": true
+  },
+  {
     "type": "kOut",
     "named": true
   },
@@ -8916,6 +8925,7 @@
   },
   {
     "type": "pp",
-    "named": true
+    "named": true,
+    "extra": true
   }
 ]
