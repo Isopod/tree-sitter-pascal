@@ -1046,8 +1046,16 @@
           "type": "FIELD",
           "name": "exception",
           "content": {
-            "type": "SYMBOL",
-            "name": "_expr"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         },
         {
@@ -2055,8 +2063,16 @@
           "type": "FIELD",
           "name": "exception",
           "content": {
-            "type": "SYMBOL",
-            "name": "_expr"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         }
       ]
@@ -6775,16 +6791,29 @@
           }
         },
         {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "FIELD",
-          "name": "type",
-          "content": {
-            "type": "SYMBOL",
-            "name": "type"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "type",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "type"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -9282,7 +9311,7 @@
     },
     "kSealed": {
       "type": "PATTERN",
-      "value": "seled",
+      "value": "sealed",
       "flags": "i"
     },
     "kDynamic": {
@@ -9402,7 +9431,7 @@
     },
     "kSafecall": {
       "type": "PATTERN",
-      "value": "safecal",
+      "value": "safecall",
       "flags": "i"
     },
     "kAssembler": {
@@ -9527,7 +9556,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[&]?[a-zA-Z_]+[0-9_a-zA-Z]*"
+      "value": "[&]?[a-zA-Z_]+[0-9_a-zA-Z$]*"
     },
     "_space": {
       "type": "PATTERN",

@@ -16,6 +16,13 @@ Grammar for Pascal and its dialects Delphi and Freepascal.
 - Syntax highlighting
 - Scopes
 
+
+## Warren's fork of tree-sitter pascal is compatible with ML Code Index tools like REPOWISE
+## warren's repowise fork has unit tests to test pascal unit parsing, for AI/ML/MCP integration.
+    # from warrens repowise fork
+    # https://github.com/wpostma/repowise
+    uv run --with-editable .\thirdparty\tree-sitter-pascal pytest test_parser.py -q
+
 ## Screenshots
 
 (using nvim-treesitter)

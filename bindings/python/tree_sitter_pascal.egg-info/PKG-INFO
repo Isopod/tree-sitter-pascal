@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: tree-sitter-pascal
+Version: 0.9.1
+Summary: Pascal grammar for tree-sitter
+License: MIT
+Project-URL: Homepage, https://github.com/tree-sitter/tree-sitter-pascal
+Keywords: incremental,parsing,tree-sitter,pascal
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: core
+Requires-Dist: tree-sitter~=0.21; extra == "core"
+Dynamic: license-file
+
+# tree-sitter-pascal
+
+Grammar for Pascal and its dialects Delphi and Freepascal.
+
+## Supported language features
+- Classes, records, interfaces, class helpers
+- Nested declarations
+- Variant records
+- Generics (Delphi- & FPC flavored)
+- Anonymous procedures & functions
+- Inline assember (but no highlighting)
+- Extended RTTI attributes
+- FPC PasCocoa extensions
+
+## Tree-sitter features:
+- Syntax highlighting
+- Scopes
+
+## Screenshots
+
+(using nvim-treesitter)
+
+<a href=".doc/scr1.png"><img src=".doc/scr1.png" style="width: 22%; height: 22%"></a>
+<a href=".doc/scr2.png"><img src=".doc/scr2.png" style="width: 22%; height: 22%"></a>
+<a href=".doc/scr3.png"><img src=".doc/scr3.png" style="width: 22%; height: 22%"></a>
+<a href=".doc/scr4.png"><img src=".doc/scr4.png" style="width: 22%; height: 22%"></a>

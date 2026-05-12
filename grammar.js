@@ -232,7 +232,7 @@ function statements(trailing) {
 
 		[rn('raise'),       $ => seq(
 			$.kRaise,
-			field('exception', $._expr),
+			field('exception', optional($._expr)),
 			...semicolon
 		)],
 
@@ -814,8 +814,7 @@ module.exports = grammar({
 			$.kProperty,
 			field('name', $.identifier),
 			field('args', optional($.declPropArgs)),
-			':',
-			field('type', $.type),
+			optional(seq(':', field('type', $.type))),
 			repeat(choice(
 				seq($.kIndex, field('index', $._expr)),
 				...enable_if(delphi, seq($.kDispId, field('dispid', $._expr))),
@@ -1139,7 +1138,7 @@ module.exports = grammar({
 		kStatic:           $ => /static/i,
 		kVirtual:          $ => /virtual/i,
 		kAbstract:         $ => /abstract/i,
-		kSealed:           $ => /seled/i,
+		kSealed:           $ => /sealed/i,
 		kDynamic:          $ => /dynamic/i,
 		kOverride:         $ => /override/i,
 		kOverload:         $ => /overload/i,
@@ -1164,7 +1163,7 @@ module.exports = grammar({
 		kExport:           $ => /export/i,
 		kFar:              $ => /far/i,
 		kNear:             $ => /near/i,
-		kSafecall:         $ => /safecal/i,
+		kSafecall:         $ => /safecall/i,
 		kAssembler:        $ => /assembler/i,
 		kNostackframe:     $ => /nostackframe/i,
 		kInterrupt:        $ => /interrupt/i,
@@ -1193,7 +1192,7 @@ module.exports = grammar({
 		kIfndef:           $ => /ifndef/i,
 		kEndif:            $ => /endif/i,
 
-		identifier:        $ => /[&]?[a-zA-Z_]+[0-9_a-zA-Z]*/,
+		identifier:        $ => /[&]?[a-zA-Z_]+[0-9_a-zA-Z$]*/,
 
 	  	_space:            $ => /[\s\r\n\t]+/,
 		pp:                $ => /\{\$[^}]*\}/,
