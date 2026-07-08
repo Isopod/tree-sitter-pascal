@@ -1,0 +1,70 @@
+name: CI and Release
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  test-and-update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: cd bindings/node && npm install
+
+    - name: Build parser
+      run: cd bindings/node && npm run build
+
+    - name: Run tests
+      run: cd bindings/node && npm test
+
+    - name: Update documentation
+      run: node docs/export_rules.js
+
+    - name: Commit documentation changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "docs: auto-update rules.md and CONTRIBUTING.md with latest test results"
+        file_pattern: "docs/rules.md CONTRIBUTING.md"
+
+  create-tag:
+    needs: test-and-update
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag_version.outputs.tag }}
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create Tag
+      id: tag_version
+      run: |
+        VERSION=$(jq -r '.metadata.version' tree-sitter.json)
+        SHA_SHORT=$(git rev-parse --short HEAD)
+        TAG="v${VERSION}-${SHA_SHORT}"
+        echo "tag=${TAG}" >> $GITHUB_OUTPUT
+        git tag $TAG
+        git push origin $TAG
+
+  build-libs:
+    needs: create-tag
+    uses: ./.github/workflows/build-libs.yml
+    with:
+      tag_name: ${{ needs.create-tag.outputs.tag }}
+    secrets: inherit

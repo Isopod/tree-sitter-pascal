@@ -103,6 +103,80 @@ end;
         (kEnd)))
     (kEnd))))
 ===
+For-in Inline Variable with Block Body
+===
+procedure Test;
+begin
+  for var S in LExpected do
+  begin
+    Process(S);
+  end;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (foreach
+    (kFor)
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kIn)
+    (identifier)
+    (kDo)
+    (block
+     (kBegin)
+     (statement
+      (exprCall
+       (identifier)
+       (exprArgs
+        (identifier))))
+     (kEnd)))
+   (kEnd))))
+
+===
+For-in Typed Inline Variable with Block Body
+===
+procedure Test;
+begin
+  for var S: string in LExpected do
+  begin
+    Process(S);
+  end;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (foreach
+    (kFor)
+    (varAssignDef
+     (kVar)
+     (identifier)
+     (typeref
+      (identifier)))
+    (kIn)
+    (identifier)
+    (kDo)
+    (block
+     (kBegin)
+     (statement
+      (exprCall
+       (identifier)
+       (exprArgs
+        (identifier))))
+     (kEnd)))
+   (kEnd))))
+
+===
 Inline Variables and Anonymous function
 ===
 procedure Test;

@@ -1,0 +1,20 @@
+program examples;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  anon in 'anon.pas',
+  codetoolmanager in 'codetoolmanager.pas',
+  foo in 'foo.pas';
+
+begin
+  try
+    { TODO -oUser -cConsole Main : Insert code here }
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

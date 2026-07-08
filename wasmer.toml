@@ -1,0 +1,12 @@
+[package]
+name = "jimmckeeth/tree-sitter-pascal"
+version = "0.11.0"
+description = "Tree-sitter grammar for Pascal (Delphi, Free Pascal)"
+license = "AGPL-3.0-only"
+readme = "README.md"
+repository = "https://github.com/jimmckeeth/tree-sitter-pascal"
+
+[[module]]
+name = "tree-sitter-pascal"
+source = "tree-sitter-pascal.wasm"
+abi = "none"

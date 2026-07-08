@@ -1,0 +1,32 @@
+===
+Nested Preprocessor 1
+===
+procedure foo;
+{$ifdef A}
+  {$ifdef B}
+  var i: integer;
+  {$endif}
+begin
+end;
+{$endif}
+---
+
+(root
+  (defProc
+    (declProc
+      (kProcedure)
+      (identifier))
+    (pp)
+    (pp)
+    (declVars
+      (kVar)
+      (declVar
+        (identifier)
+        (type
+          (typeref
+            (identifier)))))
+    (pp)
+    (block
+      (kBegin)
+      (kEnd))
+    (pp)))

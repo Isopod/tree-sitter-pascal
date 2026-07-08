@@ -1,0 +1,633 @@
+===
+Fuzzed Records 1
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 2
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 3
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 4
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 5
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 6
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 7
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 8
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 9
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 10
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 11
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 12
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 13
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 14
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 15
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 16
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 17
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 18
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 19
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 20
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 21
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 22
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 23
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 24
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 25
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 26
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 27
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 28
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 29
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 30
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 31
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 32
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 33
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 34
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 35
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 36
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 37
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 38
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 39
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 40
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 41
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 42
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 43
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 44
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 45
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 46
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 47
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 48
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 49
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 50
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 51
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 52
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 53
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 54
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 55
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 56
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 57
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 58
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 59
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 60
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 61
+===
+type TMyRecord = record
+  class operator Finalize(var Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 62
+===
+type TMyRecord = record
+  class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+      class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 63
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+      class operator Finalize(var Dest: TMyRecord);
+      class operator Assign(var Dest: TMyRecord; const [ref] Src: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))))) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kVar) (identifier) (type (typeref (identifier)))) (declArg (kConst) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+
+===
+Fuzzed Records 64
+===
+type TMyRecord = record
+  class operator Initialize(out Dest: TMyRecord);
+end;
+---
+(root (declTypes (kType) (declType (identifier) (kEq) (declClass (kRecord) (declProc (kClass) (kOperator) (identifier) (declArgs (declArg (kOut) (identifier) (type (typeref (identifier)))))) (kEnd)))))
+

@@ -1,29 +1,78 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "tree-sitter-pascal"
+version = "0.11.0"
 description = "Pascal grammar for tree-sitter"
-version = "0.9.1"
-keywords = ["incremental", "parsing", "tree-sitter", "pascal"]
+readme = "README.md"
+requires-python = ">=3.8"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE.md"]
+authors = [
+  { name = "Jim McKeeth" }
+]
+keywords = ["incremental", "parsing", "tree-sitter", "pascal", "delphi"]
 classifiers = [
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Software Development :: Compilers",
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed"
 ]
-requires-python = ">=3.8"
-license.text = "MIT"
-readme = "README.md"
-
-[project.urls]
-Homepage = "https://github.com/tree-sitter/tree-sitter-pascal"
+dependencies = []
 
 [project.optional-dependencies]
-core = ["tree-sitter~=0.21"]
+core = ["tree-sitter~=0.22"]
+
+[project.urls]
+Homepage = "https://github.com/jimmckeeth/tree-sitter-pascal"
+Repository = "https://github.com/jimmckeeth/tree-sitter-pascal"
+Issues = "https://github.com/jimmckeeth/tree-sitter-pascal/issues"
+
+[tool.setuptools]
+package-dir = { "" = "bindings/python" }
+include-package-data = false
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["bindings/python"]
+include = ["tree_sitter_pascal*"]
+
+[tool.setuptools.package-data]
+tree_sitter_pascal = ["*.pyi", "py.typed"]
+"tree_sitter_pascal.queries" = ["*.scm"]
 
 [tool.cibuildwheel]
-build = "cp38-*"
+build = "cp39-*"
 build-frontend = "build"
+test-extras = ["core"]
+test-command = "python -m unittest discover -s {project}/bindings/python/tests"
+skip = [
+  "pp*"
+]
+test-skip = ["*-win_arm64"]
+
+[tool.cibuildwheel.linux]
+archs = ["x86_64", "aarch64", "i686"]
+
+[tool.cibuildwheel.macos]
+archs = ["x86_64", "arm64", "universal2"]
+
+[tool.cibuildwheel.windows]
+archs = ["AMD64", "x86", "ARM64"]
+# vcruntime140.dll ships with the VC++ Redistributable already present on
+# target machines; delvewheel can't locate an ARM64 copy on the x64 runner
+# used to cross-compile win_arm64, so exclude it from repair instead of
+# bundling it.
+repair-wheel-command = "delvewheel repair --no-dll vcruntime140.dll -w {dest_dir} -v {wheel}"

@@ -1,0 +1,15 @@
+include LICENSE.md
+include README.md
+include pyproject.toml
+include setup.py
+include src/parser.c
+include src/grammar.json
+include src/node-types.json
+recursive-include src/tree_sitter *.h
+recursive-include bindings/python/tree_sitter_pascal *.c *.py *.pyi py.typed
+recursive-include bindings/python/tests *.py
+recursive-include queries *.scm
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude *.pyd
+global-exclude *.egg-info/*

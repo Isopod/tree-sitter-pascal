@@ -13,11 +13,12 @@
         "pas"
       ],
       "injection-regex": "^pascal$",
+      "highlights": "queries/highlights.scm",
       "class-name": "TreeSitterPascal"
     }
   ],
   "metadata": {
-    "version": "0.10.2",
+    "version": "0.11.0",
     "license": "MIT",
     "description": "Tree-sitter grammar for Pascal",
     "authors": [

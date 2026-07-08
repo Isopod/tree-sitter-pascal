@@ -4,14 +4,17 @@ interface
 
 implementation
 
+type
+  TFuncOfInt = function(x: Integer): integer;
+
 function MakeAdder(y: Integer): TFuncOfInt;
 begin
-  Result := 
+  Result :=
     function(x: Integer) : Integer
     begin
       Result := x + y;
     end;
-  z := x + y;
+  var z := x + y;
 end;
 
 procedure Test;

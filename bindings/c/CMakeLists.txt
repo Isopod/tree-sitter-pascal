@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-pascal
-        VERSION "0.10.2"
+        VERSION "0.11.0"
         DESCRIPTION "Tree-sitter grammar for Pascal"
         HOMEPAGE_URL "https://github.com/isopod/tree-sitter-pascal"
         LANGUAGES C)
@@ -17,18 +17,20 @@ endif()
 
 find_program(TREE_SITTER_CLI tree-sitter DOC "Tree-sitter CLI")
 
-add_custom_command(OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/src/parser.c"
-                   DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/grammar.json"
-                   COMMAND "${TREE_SITTER_CLI}" generate src/grammar.json
+set(TREE_SITTER_PASCAL_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../src")
+
+add_custom_command(OUTPUT "${TREE_SITTER_PASCAL_SRC_DIR}/parser.c"
+                   DEPENDS "${TREE_SITTER_PASCAL_SRC_DIR}/grammar.json"
+                   COMMAND "${TREE_SITTER_CLI}" generate "${TREE_SITTER_PASCAL_SRC_DIR}/grammar.json"
                             --abi=${TREE_SITTER_ABI_VERSION}
-                   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+                   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../.."
                    COMMENT "Generating parser.c")
 
-add_library(tree-sitter-pascal src/parser.c)
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src/scanner.c)
-  target_sources(tree-sitter-pascal PRIVATE src/scanner.c)
+add_library(tree-sitter-pascal "${TREE_SITTER_PASCAL_SRC_DIR}/parser.c")
+if(EXISTS "${TREE_SITTER_PASCAL_SRC_DIR}/scanner.c")
+  target_sources(tree-sitter-pascal PRIVATE "${TREE_SITTER_PASCAL_SRC_DIR}/scanner.c")
 endif()
-target_include_directories(tree-sitter-pascal PRIVATE src)
+target_include_directories(tree-sitter-pascal PRIVATE "${TREE_SITTER_PASCAL_SRC_DIR}")
 
 target_compile_definitions(tree-sitter-pascal PRIVATE
                            $<$<BOOL:${TREE_SITTER_REUSE_ALLOCATOR}>:TREE_SITTER_REUSE_ALLOCATOR>
@@ -41,18 +43,18 @@ set_target_properties(tree-sitter-pascal
                       SOVERSION "${TREE_SITTER_ABI_VERSION}.${PROJECT_VERSION_MAJOR}"
                       DEFINE_SYMBOL "")
 
-configure_file(bindings/c/tree-sitter-pascal.pc.in
+configure_file(tree-sitter-pascal.pc.in
                "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-pascal.pc" @ONLY)
 
 include(GNUInstallDirs)
 
-install(FILES bindings/c/tree-sitter-pascal.h
+install(FILES tree-sitter-pascal.h
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/tree_sitter")
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-pascal.pc"
         DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig")
 install(TARGETS tree-sitter-pascal
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 
-add_custom_target(ts-test "${TREE_SITTER_CLI}" test
-                  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+add_custom_target(ts-test "${TREE_SITTER_CLI}" test ../../test/corpus
+                  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../.."
                   COMMENT "tree-sitter test")

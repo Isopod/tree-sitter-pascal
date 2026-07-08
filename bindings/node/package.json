@@ -1,9 +1,9 @@
 {
   "name": "tree-sitter-pascal",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "description": "Tree sitter grammar for Pascal (Delphi, Freepascal)",
-  "main": "bindings/node",
-  "types": "bindings/node",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": null,
   "author": "Benjamin Gray",
   "license": "MIT",
@@ -12,18 +12,21 @@
     "tree-sitter-cli": "^0.24.5"
   },
   "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
-    "test": "tree-sitter test && tree-sitter parse examples/* --quiet --time",
+    "build": "tree-sitter generate ../../grammar.js && node-gyp build",
+    "test": "tree-sitter test ../../test/corpus & tree-sitter parse ../../examples/* --quiet --time & node ../../docs/export_rules.js",
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip"
   },
   "files": [
-    "grammar.js",
+    "../../grammar.js",
     "binding.gyp",
     "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
+    "index.js",
+    "index.d.ts",
+    "binding.cc",
+    "../../queries/*",
+    "../../src/**",
+    "*.wasm"
   ],
   "dependencies": {
     "node-gyp-build": "^4.8.4"

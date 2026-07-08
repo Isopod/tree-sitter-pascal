@@ -3,7 +3,7 @@ VERSION := 0.10.2
 LANGUAGE_NAME := tree-sitter-pascal
 
 # repository
-SRC_DIR := src
+SRC_DIR := ../../src
 
 PARSER_REPO_URL := $(shell git -C $(SRC_DIR) remote get-url origin 2>/dev/null)
 
@@ -67,11 +67,12 @@ lib$(LANGUAGE_NAME).a: $(OBJS)
 
 lib$(LANGUAGE_NAME).$(SOEXT): $(OBJS)
 	$(CC) $(LDFLAGS) $(LINKSHARED) $^ $(LDLIBS) -o $@
+
 ifneq ($(STRIP),)
 	$(STRIP) $@
 endif
 
-$(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in
+$(LANGUAGE_NAME).pc: $(LANGUAGE_NAME).pc.in
 	sed  -e 's|@URL@|$(PARSER_URL)|' \
 		-e 's|@VERSION@|$(VERSION)|' \
 		-e 's|@LIBDIR@|$(LIBDIR)|' \
@@ -81,12 +82,12 @@ $(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in
 		-e 's|=$(PREFIX)|=$${prefix}|' \
 		-e 's|@PREFIX@|$(PREFIX)|' $< > $@
 
-$(SRC_DIR)/parser.c: grammar.js
+$(SRC_DIR)/parser.c: ../../grammar.js
 	$(TS) generate --no-bindings
 
 install: all
 	install -d '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter '$(DESTDIR)$(PCLIBDIR)' '$(DESTDIR)$(LIBDIR)'
-	install -m644 bindings/c/$(LANGUAGE_NAME).h '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h
+	install -m644 $(LANGUAGE_NAME).h '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h
 	install -m644 $(LANGUAGE_NAME).pc '$(DESTDIR)$(PCLIBDIR)'/$(LANGUAGE_NAME).pc
 	install -m644 lib$(LANGUAGE_NAME).a '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).a
 	install -m755 lib$(LANGUAGE_NAME).$(SOEXT) '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).$(SOEXTVER)
@@ -105,6 +106,6 @@ clean:
 	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT)
 
 test:
-	$(TS) test
+	$(TS) test ../../test/corpus
 
 .PHONY: all install uninstall clean test

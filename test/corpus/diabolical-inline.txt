@@ -1,0 +1,5820 @@
+===
+Fuzzed Inline 1
+===
+procedure Test;
+begin
+  const C586 = 59;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 2
+===
+procedure Test;
+begin
+  var V955: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 3
+===
+procedure Test;
+begin
+  for var I23 := 0 to 1 do var V848: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 4
+===
+procedure Test;
+begin
+  var V689 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 5
+===
+procedure Test;
+begin
+  var V75: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 6
+===
+procedure Test;
+begin
+  const C225 = 90;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 7
+===
+procedure Test;
+begin
+  var V529 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 8
+===
+procedure Test;
+begin
+  const C837 = 88;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 9
+===
+procedure Test;
+begin
+  var V508 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 10
+===
+procedure Test;
+begin
+  var V668 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 11
+===
+procedure Test;
+begin
+  const C839 = 75;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 12
+===
+procedure Test;
+begin
+  var V278 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 13
+===
+procedure Test;
+begin
+  var V456 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 14
+===
+procedure Test;
+begin
+  var V263 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 15
+===
+procedure Test;
+begin
+  for var I9 := 0 to 16 do const C174 = 87;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 16
+===
+procedure Test;
+begin
+  const C737 = 89;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 17
+===
+procedure Test;
+begin
+  for var I15 := 0 to 8 do const C615 = 68;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 18
+===
+procedure Test;
+begin
+  var V431: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 19
+===
+procedure Test;
+begin
+  var V597: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 20
+===
+procedure Test;
+begin
+  var V240 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 21
+===
+procedure Test;
+begin
+  var V315 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 22
+===
+procedure Test;
+begin
+  var V962 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 23
+===
+procedure Test;
+begin
+  var V495 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 24
+===
+procedure Test;
+begin
+  const C193 = 55;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 25
+===
+procedure Test;
+begin
+  const C455 = 53;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 26
+===
+procedure Test;
+begin
+  var V921 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 27
+===
+procedure Test;
+begin
+  const C0 = 98;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 28
+===
+procedure Test;
+begin
+  for var I29 := 0 to 0 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 29
+===
+procedure Test;
+begin
+  const C509 = 89;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 30
+===
+procedure Test;
+begin
+  const C696 = 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 31
+===
+procedure Test;
+begin
+  for var I40 := 0 to 14 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 32
+===
+procedure Test;
+begin
+  var V511 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 33
+===
+procedure Test;
+begin
+  var V719: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 34
+===
+procedure Test;
+begin
+  for var I43 := 0 to 10 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 35
+===
+procedure Test;
+begin
+  for var I70 := 0 to 13 do var V962 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 36
+===
+procedure Test;
+begin
+  var V124 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 37
+===
+procedure Test;
+begin
+  const C385 = 87;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 38
+===
+procedure Test;
+begin
+  const C370 = 43;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 39
+===
+procedure Test;
+begin
+  for var I31 := 0 to 7 do var V624: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 40
+===
+procedure Test;
+begin
+  var V501 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 41
+===
+procedure Test;
+begin
+  var V243 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 42
+===
+procedure Test;
+begin
+  for var I10 := 0 to 2 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 43
+===
+procedure Test;
+begin
+  var V207 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 44
+===
+procedure Test;
+begin
+  const C288 = 91;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 45
+===
+procedure Test;
+begin
+  var V939 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 46
+===
+procedure Test;
+begin
+  const C13 = 54;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 47
+===
+procedure Test;
+begin
+  var V399 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 48
+===
+procedure Test;
+begin
+  var V672: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 49
+===
+procedure Test;
+begin
+  var V653 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 50
+===
+procedure Test;
+begin
+  var V897 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 51
+===
+procedure Test;
+begin
+  var V646 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 52
+===
+procedure Test;
+begin
+  var V160: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 53
+===
+procedure Test;
+begin
+  var V194: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 54
+===
+procedure Test;
+begin
+  var V475 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 55
+===
+procedure Test;
+begin
+  var V432 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 56
+===
+procedure Test;
+begin
+  var V781: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 57
+===
+procedure Test;
+begin
+  var V654 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 58
+===
+procedure Test;
+begin
+  var V39 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 59
+===
+procedure Test;
+begin
+  var V277: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 60
+===
+procedure Test;
+begin
+  var V858 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 61
+===
+procedure Test;
+begin
+  var V744: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 62
+===
+procedure Test;
+begin
+  for var I31 := 0 to 4 do var V905: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 63
+===
+procedure Test;
+begin
+  var V908 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 64
+===
+procedure Test;
+begin
+  var V893 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 65
+===
+procedure Test;
+begin
+  for var I55 := 0 to 10 do var V582 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 66
+===
+procedure Test;
+begin
+  var V656 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 67
+===
+procedure Test;
+begin
+  const C532 = 49;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 68
+===
+procedure Test;
+begin
+  for var I75 := 0 to 6 do var V246 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 69
+===
+procedure Test;
+begin
+  for var I40 := 0 to 7 do const C349 = 86;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 70
+===
+procedure Test;
+begin
+  var V722 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 71
+===
+procedure Test;
+begin
+  var V802 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 72
+===
+procedure Test;
+begin
+  for var I42 := 0 to 13 do var V977: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 73
+===
+procedure Test;
+begin
+  var V726 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 74
+===
+procedure Test;
+begin
+  const C178 = 30;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 75
+===
+procedure Test;
+begin
+  const C455 = 45;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 76
+===
+procedure Test;
+begin
+  var V173: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 77
+===
+procedure Test;
+begin
+  const C567 = 39;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 78
+===
+procedure Test;
+begin
+  var V134 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 79
+===
+procedure Test;
+begin
+  var V925 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 80
+===
+procedure Test;
+begin
+  var V301 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 81
+===
+procedure Test;
+begin
+  var V882: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 82
+===
+procedure Test;
+begin
+  var V477 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 83
+===
+procedure Test;
+begin
+  var V970 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 84
+===
+procedure Test;
+begin
+  for var I85 := 0 to 4 do for var I80 := 0 to 15 do const C281 = 55;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))))) (kEnd))))
+
+===
+Fuzzed Inline 85
+===
+procedure Test;
+begin
+  var V492 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 86
+===
+procedure Test;
+begin
+  var V167: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 87
+===
+procedure Test;
+begin
+  const C259 = 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 88
+===
+procedure Test;
+begin
+  for var I26 := 0 to 3 do const C391 = 82;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 89
+===
+procedure Test;
+begin
+  const C111 = 41;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 90
+===
+procedure Test;
+begin
+  for var I0 := 0 to 2 do var V274 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 91
+===
+procedure Test;
+begin
+  const C752 = 16;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 92
+===
+procedure Test;
+begin
+  const C416 = 90;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 93
+===
+procedure Test;
+begin
+  var V498 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 94
+===
+procedure Test;
+begin
+  for var I60 := 0 to 14 do var V452: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 95
+===
+procedure Test;
+begin
+  const C138 = 96;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 96
+===
+procedure Test;
+begin
+  for var I57 := 0 to 15 do const C253 = 12;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 97
+===
+procedure Test;
+begin
+  var V747 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 98
+===
+procedure Test;
+begin
+  for var I52 := 0 to 14 do for var I11 := 0 to 8 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 99
+===
+procedure Test;
+begin
+  var V303: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 100
+===
+procedure Test;
+begin
+  var V470 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 101
+===
+procedure Test;
+begin
+  const C832 = 83;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 102
+===
+procedure Test;
+begin
+  var V543 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 103
+===
+procedure Test;
+begin
+  var V744 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 104
+===
+procedure Test;
+begin
+  for var I29 := 0 to 18 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 105
+===
+procedure Test;
+begin
+  var V838: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 106
+===
+procedure Test;
+begin
+  const C124 = 12;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 107
+===
+procedure Test;
+begin
+  const C206 = 75;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 108
+===
+procedure Test;
+begin
+  var V799 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 109
+===
+procedure Test;
+begin
+  var V952 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 110
+===
+procedure Test;
+begin
+  const C512 = 94;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 111
+===
+procedure Test;
+begin
+  const C488 = 83;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 112
+===
+procedure Test;
+begin
+  var V401: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 113
+===
+procedure Test;
+begin
+  for var I36 := 0 to 17 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 114
+===
+procedure Test;
+begin
+  for var I35 := 0 to 2 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 115
+===
+procedure Test;
+begin
+  var V300 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 116
+===
+procedure Test;
+begin
+  var V50: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 117
+===
+procedure Test;
+begin
+  var V990 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 118
+===
+procedure Test;
+begin
+  const C449 = 53;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 119
+===
+procedure Test;
+begin
+  const C752 = 73;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 120
+===
+procedure Test;
+begin
+  var V855 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 121
+===
+procedure Test;
+begin
+  var V335 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 122
+===
+procedure Test;
+begin
+  var V408: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 123
+===
+procedure Test;
+begin
+  var V427 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 124
+===
+procedure Test;
+begin
+  for var I78 := 0 to 8 do var V178: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 125
+===
+procedure Test;
+begin
+  for var I3 := 0 to 10 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 126
+===
+procedure Test;
+begin
+  for var I88 := 0 to 16 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 127
+===
+procedure Test;
+begin
+  var V584 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 128
+===
+procedure Test;
+begin
+  for var I85 := 0 to 14 do var V762 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 129
+===
+procedure Test;
+begin
+  for var I20 := 0 to 14 do var V298: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 130
+===
+procedure Test;
+begin
+  var V602 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 131
+===
+procedure Test;
+begin
+  var V200 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 132
+===
+procedure Test;
+begin
+  for var I23 := 0 to 11 do var V901: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 133
+===
+procedure Test;
+begin
+  var V748 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 134
+===
+procedure Test;
+begin
+  const C585 = 0;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 135
+===
+procedure Test;
+begin
+  for var I12 := 0 to 10 do const C707 = 49;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 136
+===
+procedure Test;
+begin
+  var V267: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 137
+===
+procedure Test;
+begin
+  var V539: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 138
+===
+procedure Test;
+begin
+  var V798 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 139
+===
+procedure Test;
+begin
+  var V680 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 140
+===
+procedure Test;
+begin
+  var V295: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 141
+===
+procedure Test;
+begin
+  const C338 = 2;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 142
+===
+procedure Test;
+begin
+  var V320 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 143
+===
+procedure Test;
+begin
+  var V485 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 144
+===
+procedure Test;
+begin
+  var V212 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 145
+===
+procedure Test;
+begin
+  var V630 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 146
+===
+procedure Test;
+begin
+  const C221 = 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 147
+===
+procedure Test;
+begin
+  const C770 = 26;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 148
+===
+procedure Test;
+begin
+  var V145 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 149
+===
+procedure Test;
+begin
+  var V469 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 150
+===
+procedure Test;
+begin
+  var V640 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 151
+===
+procedure Test;
+begin
+  var V111 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 152
+===
+procedure Test;
+begin
+  const C941 = 54;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 153
+===
+procedure Test;
+begin
+  var V749 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 154
+===
+procedure Test;
+begin
+  var V405 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 155
+===
+procedure Test;
+begin
+  const C421 = 95;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 156
+===
+procedure Test;
+begin
+  const C221 = 84;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 157
+===
+procedure Test;
+begin
+  var V111 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 158
+===
+procedure Test;
+begin
+  var V266: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 159
+===
+procedure Test;
+begin
+  const C520 = 56;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 160
+===
+procedure Test;
+begin
+  var V1 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 161
+===
+procedure Test;
+begin
+  var V479 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 162
+===
+procedure Test;
+begin
+  var V604 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 163
+===
+procedure Test;
+begin
+  var V883 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 164
+===
+procedure Test;
+begin
+  const C947 = 3;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 165
+===
+procedure Test;
+begin
+  for var I34 := 0 to 14 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 166
+===
+procedure Test;
+begin
+  var V358 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 167
+===
+procedure Test;
+begin
+  const C125 = 21;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 168
+===
+procedure Test;
+begin
+  var V854 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 169
+===
+procedure Test;
+begin
+  for var I0 := 0 to 11 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 170
+===
+procedure Test;
+begin
+  const C534 = 41;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 171
+===
+procedure Test;
+begin
+  var V585: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 172
+===
+procedure Test;
+begin
+  var V262 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 173
+===
+procedure Test;
+begin
+  for var I96 := 0 to 19 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 174
+===
+procedure Test;
+begin
+  var V115: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 175
+===
+procedure Test;
+begin
+  const C453 = 96;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 176
+===
+procedure Test;
+begin
+  var V762 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 177
+===
+procedure Test;
+begin
+  var V573 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 178
+===
+procedure Test;
+begin
+  for var I61 := 0 to 6 do var V625 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 179
+===
+procedure Test;
+begin
+  var V485: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 180
+===
+procedure Test;
+begin
+  const C429 = 18;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 181
+===
+procedure Test;
+begin
+  const C324 = 68;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 182
+===
+procedure Test;
+begin
+  for var I46 := 0 to 9 do for var I22 := 0 to 15 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 183
+===
+procedure Test;
+begin
+  for var I25 := 0 to 15 do for var I92 := 0 to 9 do var V682 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))))) (kEnd))))
+
+===
+Fuzzed Inline 184
+===
+procedure Test;
+begin
+  var V822: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 185
+===
+procedure Test;
+begin
+  var V685 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 186
+===
+procedure Test;
+begin
+  var V307 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 187
+===
+procedure Test;
+begin
+  var V244: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 188
+===
+procedure Test;
+begin
+  for var I29 := 0 to 4 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 189
+===
+procedure Test;
+begin
+  const C403 = 86;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 190
+===
+procedure Test;
+begin
+  var V556 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 191
+===
+procedure Test;
+begin
+  for var I68 := 0 to 9 do var V174: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 192
+===
+procedure Test;
+begin
+  var V706 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 193
+===
+procedure Test;
+begin
+  for var I75 := 0 to 7 do var V268 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 194
+===
+procedure Test;
+begin
+  var V57: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 195
+===
+procedure Test;
+begin
+  const C959 = 78;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 196
+===
+procedure Test;
+begin
+  var V920 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 197
+===
+procedure Test;
+begin
+  var V36 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 198
+===
+procedure Test;
+begin
+  var V240: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 199
+===
+procedure Test;
+begin
+  for var I94 := 0 to 17 do var V56 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 200
+===
+procedure Test;
+begin
+  var V754: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 201
+===
+procedure Test;
+begin
+  const C573 = 9;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 202
+===
+procedure Test;
+begin
+  for var I48 := 0 to 16 do for var I36 := 0 to 3 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 203
+===
+procedure Test;
+begin
+  var V455 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 204
+===
+procedure Test;
+begin
+  var V466: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 205
+===
+procedure Test;
+begin
+  for var I64 := 0 to 5 do var V113 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 206
+===
+procedure Test;
+begin
+  var V761 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 207
+===
+procedure Test;
+begin
+  var V981 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 208
+===
+procedure Test;
+begin
+  var V717 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 209
+===
+procedure Test;
+begin
+  var V559 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 210
+===
+procedure Test;
+begin
+  var V900 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 211
+===
+procedure Test;
+begin
+  var V518 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 212
+===
+procedure Test;
+begin
+  var V490: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 213
+===
+procedure Test;
+begin
+  var V959 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 214
+===
+procedure Test;
+begin
+  for var I66 := 0 to 9 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 215
+===
+procedure Test;
+begin
+  var V410 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 216
+===
+procedure Test;
+begin
+  var V262: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 217
+===
+procedure Test;
+begin
+  var V649 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 218
+===
+procedure Test;
+begin
+  const C235 = 32;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 219
+===
+procedure Test;
+begin
+  var V241: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 220
+===
+procedure Test;
+begin
+  const C115 = 59;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 221
+===
+procedure Test;
+begin
+  var V882 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 222
+===
+procedure Test;
+begin
+  var V479 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 223
+===
+procedure Test;
+begin
+  for var I71 := 0 to 12 do var V548 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 224
+===
+procedure Test;
+begin
+  const C452 = 94;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 225
+===
+procedure Test;
+begin
+  var V912 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 226
+===
+procedure Test;
+begin
+  const C681 = 29;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 227
+===
+procedure Test;
+begin
+  var V167 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 228
+===
+procedure Test;
+begin
+  var V984: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 229
+===
+procedure Test;
+begin
+  var V49 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 230
+===
+procedure Test;
+begin
+  const C994 = 86;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 231
+===
+procedure Test;
+begin
+  var V192 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 232
+===
+procedure Test;
+begin
+  var V387 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 233
+===
+procedure Test;
+begin
+  var V98 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 234
+===
+procedure Test;
+begin
+  var V683: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 235
+===
+procedure Test;
+begin
+  var V195 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 236
+===
+procedure Test;
+begin
+  var V738: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 237
+===
+procedure Test;
+begin
+  for var I56 := 0 to 3 do var V825: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 238
+===
+procedure Test;
+begin
+  var V506: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 239
+===
+procedure Test;
+begin
+  var V222 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 240
+===
+procedure Test;
+begin
+  var V717 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 241
+===
+procedure Test;
+begin
+  var V20 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 242
+===
+procedure Test;
+begin
+  const C463 = 74;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 243
+===
+procedure Test;
+begin
+  for var I43 := 0 to 7 do var V74 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 244
+===
+procedure Test;
+begin
+  const C861 = 93;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 245
+===
+procedure Test;
+begin
+  var V424: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 246
+===
+procedure Test;
+begin
+  const C565 = 27;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 247
+===
+procedure Test;
+begin
+  const C678 = 11;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 248
+===
+procedure Test;
+begin
+  var V811 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 249
+===
+procedure Test;
+begin
+  const C497 = 67;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 250
+===
+procedure Test;
+begin
+  var V527: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 251
+===
+procedure Test;
+begin
+  var V884 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 252
+===
+procedure Test;
+begin
+  var V865: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 253
+===
+procedure Test;
+begin
+  for var I31 := 0 to 5 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 254
+===
+procedure Test;
+begin
+  var V600 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 255
+===
+procedure Test;
+begin
+  for var I84 := 0 to 7 do const C881 = 6;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 256
+===
+procedure Test;
+begin
+  for var I19 := 0 to 7 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 257
+===
+procedure Test;
+begin
+  var V563 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 258
+===
+procedure Test;
+begin
+  for var I87 := 0 to 1 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 259
+===
+procedure Test;
+begin
+  var V459 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 260
+===
+procedure Test;
+begin
+  for var I52 := 0 to 1 do var V43 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 261
+===
+procedure Test;
+begin
+  var V454 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 262
+===
+procedure Test;
+begin
+  var V528 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 263
+===
+procedure Test;
+begin
+  var V595 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 264
+===
+procedure Test;
+begin
+  var V859: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 265
+===
+procedure Test;
+begin
+  var V535 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 266
+===
+procedure Test;
+begin
+  var V682 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 267
+===
+procedure Test;
+begin
+  for var I96 := 0 to 2 do var V872 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 268
+===
+procedure Test;
+begin
+  const C519 = 92;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 269
+===
+procedure Test;
+begin
+  var V761 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 270
+===
+procedure Test;
+begin
+  var V601 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 271
+===
+procedure Test;
+begin
+  var V590 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 272
+===
+procedure Test;
+begin
+  var V893 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 273
+===
+procedure Test;
+begin
+  for var I47 := 0 to 8 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 274
+===
+procedure Test;
+begin
+  const C259 = 74;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 275
+===
+procedure Test;
+begin
+  for var I7 := 0 to 6 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 276
+===
+procedure Test;
+begin
+  const C366 = 15;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 277
+===
+procedure Test;
+begin
+  const C175 = 46;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 278
+===
+procedure Test;
+begin
+  const C233 = 80;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 279
+===
+procedure Test;
+begin
+  var V221 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 280
+===
+procedure Test;
+begin
+  var V556: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 281
+===
+procedure Test;
+begin
+  for var I98 := 0 to 16 do const C258 = 4;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 282
+===
+procedure Test;
+begin
+  for var I75 := 0 to 0 do var V454 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 283
+===
+procedure Test;
+begin
+  const C781 = 32;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 284
+===
+procedure Test;
+begin
+  const C796 = 86;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 285
+===
+procedure Test;
+begin
+  var V719 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 286
+===
+procedure Test;
+begin
+  var V811 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 287
+===
+procedure Test;
+begin
+  const C596 = 45;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 288
+===
+procedure Test;
+begin
+  var V19 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 289
+===
+procedure Test;
+begin
+  for var I5 := 0 to 9 do const C153 = 35;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 290
+===
+procedure Test;
+begin
+  const C800 = 93;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 291
+===
+procedure Test;
+begin
+  const C267 = 90;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 292
+===
+procedure Test;
+begin
+  var V477: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 293
+===
+procedure Test;
+begin
+  for var I65 := 0 to 12 do const C247 = 84;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 294
+===
+procedure Test;
+begin
+  var V657 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 295
+===
+procedure Test;
+begin
+  var V129 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 296
+===
+procedure Test;
+begin
+  for var I34 := 0 to 19 do var V926 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 297
+===
+procedure Test;
+begin
+  const C623 = 46;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 298
+===
+procedure Test;
+begin
+  var V390 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 299
+===
+procedure Test;
+begin
+  var V942: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 300
+===
+procedure Test;
+begin
+  var V172 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 301
+===
+procedure Test;
+begin
+  for var I81 := 0 to 3 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 302
+===
+procedure Test;
+begin
+  var V584 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 303
+===
+procedure Test;
+begin
+  var V520 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 304
+===
+procedure Test;
+begin
+  var V681 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 305
+===
+procedure Test;
+begin
+  var V692 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 306
+===
+procedure Test;
+begin
+  var V716 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 307
+===
+procedure Test;
+begin
+  var V542: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 308
+===
+procedure Test;
+begin
+  var V357: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 309
+===
+procedure Test;
+begin
+  var V672 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 310
+===
+procedure Test;
+begin
+  const C352 = 32;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 311
+===
+procedure Test;
+begin
+  const C874 = 42;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 312
+===
+procedure Test;
+begin
+  const C963 = 11;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 313
+===
+procedure Test;
+begin
+  var V782 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 314
+===
+procedure Test;
+begin
+  var V809: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 315
+===
+procedure Test;
+begin
+  var V855: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 316
+===
+procedure Test;
+begin
+  var V823: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 317
+===
+procedure Test;
+begin
+  var V885 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 318
+===
+procedure Test;
+begin
+  const C317 = 98;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 319
+===
+procedure Test;
+begin
+  for var I85 := 0 to 11 do var V850 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 320
+===
+procedure Test;
+begin
+  for var I86 := 0 to 9 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 321
+===
+procedure Test;
+begin
+  var V618 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 322
+===
+procedure Test;
+begin
+  var V558 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 323
+===
+procedure Test;
+begin
+  for var I59 := 0 to 10 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 324
+===
+procedure Test;
+begin
+  var V288 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 325
+===
+procedure Test;
+begin
+  const C819 = 15;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 326
+===
+procedure Test;
+begin
+  var V544 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 327
+===
+procedure Test;
+begin
+  var V598: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 328
+===
+procedure Test;
+begin
+  var V661 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 329
+===
+procedure Test;
+begin
+  const C477 = 25;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 330
+===
+procedure Test;
+begin
+  var V873 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 331
+===
+procedure Test;
+begin
+  const C948 = 66;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 332
+===
+procedure Test;
+begin
+  for var I47 := 0 to 11 do const C801 = 51;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 333
+===
+procedure Test;
+begin
+  var V609 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 334
+===
+procedure Test;
+begin
+  for var I80 := 0 to 14 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 335
+===
+procedure Test;
+begin
+  for var I99 := 0 to 5 do const C695 = 51;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 336
+===
+procedure Test;
+begin
+  var V647 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 337
+===
+procedure Test;
+begin
+  var V706: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 338
+===
+procedure Test;
+begin
+  var V411: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 339
+===
+procedure Test;
+begin
+  for var I52 := 0 to 0 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 340
+===
+procedure Test;
+begin
+  const C860 = 36;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 341
+===
+procedure Test;
+begin
+  var V887 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 342
+===
+procedure Test;
+begin
+  var V153: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 343
+===
+procedure Test;
+begin
+  var V563: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 344
+===
+procedure Test;
+begin
+  const C106 = 33;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 345
+===
+procedure Test;
+begin
+  var V261 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 346
+===
+procedure Test;
+begin
+  const C606 = 64;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 347
+===
+procedure Test;
+begin
+  var V836 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 348
+===
+procedure Test;
+begin
+  var V708 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 349
+===
+procedure Test;
+begin
+  const C467 = 80;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 350
+===
+procedure Test;
+begin
+  var V135 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 351
+===
+procedure Test;
+begin
+  const C168 = 38;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 352
+===
+procedure Test;
+begin
+  var V273 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 353
+===
+procedure Test;
+begin
+  var V861: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 354
+===
+procedure Test;
+begin
+  var V191: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 355
+===
+procedure Test;
+begin
+  const C684 = 48;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 356
+===
+procedure Test;
+begin
+  const C970 = 34;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 357
+===
+procedure Test;
+begin
+  var V318 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 358
+===
+procedure Test;
+begin
+  var V711 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 359
+===
+procedure Test;
+begin
+  var V44 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 360
+===
+procedure Test;
+begin
+  const C930 = 92;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 361
+===
+procedure Test;
+begin
+  for var I29 := 0 to 6 do var V712 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 362
+===
+procedure Test;
+begin
+  const C958 = 38;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 363
+===
+procedure Test;
+begin
+  var V197 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 364
+===
+procedure Test;
+begin
+  var V97 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 365
+===
+procedure Test;
+begin
+  const C946 = 72;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 366
+===
+procedure Test;
+begin
+  var V524 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 367
+===
+procedure Test;
+begin
+  var V247: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 368
+===
+procedure Test;
+begin
+  const C481 = 91;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 369
+===
+procedure Test;
+begin
+  var V355 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 370
+===
+procedure Test;
+begin
+  const C512 = 8;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 371
+===
+procedure Test;
+begin
+  for var I31 := 0 to 0 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 372
+===
+procedure Test;
+begin
+  var V812 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 373
+===
+procedure Test;
+begin
+  var V37 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 374
+===
+procedure Test;
+begin
+  for var I72 := 0 to 0 do const C135 = 93;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 375
+===
+procedure Test;
+begin
+  var V487 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 376
+===
+procedure Test;
+begin
+  var V232: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 377
+===
+procedure Test;
+begin
+  var V327 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 378
+===
+procedure Test;
+begin
+  var V583: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 379
+===
+procedure Test;
+begin
+  const C624 = 85;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 380
+===
+procedure Test;
+begin
+  const C436 = 96;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 381
+===
+procedure Test;
+begin
+  var V258: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 382
+===
+procedure Test;
+begin
+  var V215 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 383
+===
+procedure Test;
+begin
+  for var I32 := 0 to 11 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 384
+===
+procedure Test;
+begin
+  for var I99 := 0 to 16 do var V381 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 385
+===
+procedure Test;
+begin
+  var V639: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 386
+===
+procedure Test;
+begin
+  var V672 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 387
+===
+procedure Test;
+begin
+  const C139 = 2;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 388
+===
+procedure Test;
+begin
+  var V171 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 389
+===
+procedure Test;
+begin
+  for var I6 := 0 to 10 do var V226 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 390
+===
+procedure Test;
+begin
+  var V476 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 391
+===
+procedure Test;
+begin
+  var V318: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 392
+===
+procedure Test;
+begin
+  var V401 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 393
+===
+procedure Test;
+begin
+  var V803: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 394
+===
+procedure Test;
+begin
+  for var I88 := 0 to 7 do const C891 = 72;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 395
+===
+procedure Test;
+begin
+  const C350 = 11;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 396
+===
+procedure Test;
+begin
+  var V103: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 397
+===
+procedure Test;
+begin
+  var V412 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 398
+===
+procedure Test;
+begin
+  for var I22 := 0 to 4 do var V754: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 399
+===
+procedure Test;
+begin
+  for var I55 := 0 to 13 do var V542 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 400
+===
+procedure Test;
+begin
+  const C85 = 69;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 401
+===
+procedure Test;
+begin
+  const C686 = 88;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 402
+===
+procedure Test;
+begin
+  var V311 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 403
+===
+procedure Test;
+begin
+  var V787 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 404
+===
+procedure Test;
+begin
+  var V683 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 405
+===
+procedure Test;
+begin
+  var V79 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 406
+===
+procedure Test;
+begin
+  for var I51 := 0 to 1 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 407
+===
+procedure Test;
+begin
+  var V589 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 408
+===
+procedure Test;
+begin
+  for var I26 := 0 to 9 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 409
+===
+procedure Test;
+begin
+  for var I69 := 0 to 12 do const C419 = 4;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 410
+===
+procedure Test;
+begin
+  var V746 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 411
+===
+procedure Test;
+begin
+  for var I73 := 0 to 1 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 412
+===
+procedure Test;
+begin
+  var V835 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 413
+===
+procedure Test;
+begin
+  const C59 = 84;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 414
+===
+procedure Test;
+begin
+  const C507 = 73;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 415
+===
+procedure Test;
+begin
+  var V260 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 416
+===
+procedure Test;
+begin
+  var V239 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 417
+===
+procedure Test;
+begin
+  var V446 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 418
+===
+procedure Test;
+begin
+  const C170 = 33;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 419
+===
+procedure Test;
+begin
+  const C936 = 14;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 420
+===
+procedure Test;
+begin
+  for var I95 := 0 to 16 do var V918 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 421
+===
+procedure Test;
+begin
+  var V343: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 422
+===
+procedure Test;
+begin
+  var V345 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 423
+===
+procedure Test;
+begin
+  var V725 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 424
+===
+procedure Test;
+begin
+  const C69 = 3;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 425
+===
+procedure Test;
+begin
+  for var I74 := 0 to 19 do for var I57 := 0 to 5 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 426
+===
+procedure Test;
+begin
+  for var I70 := 0 to 1 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 427
+===
+procedure Test;
+begin
+  var V804 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 428
+===
+procedure Test;
+begin
+  for var I54 := 0 to 5 do var V650 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 429
+===
+procedure Test;
+begin
+  var V141: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 430
+===
+procedure Test;
+begin
+  var V373 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 431
+===
+procedure Test;
+begin
+  const C987 = 50;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 432
+===
+procedure Test;
+begin
+  for var I81 := 0 to 19 do for var I84 := 0 to 9 do var V176 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 433
+===
+procedure Test;
+begin
+  const C724 = 18;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 434
+===
+procedure Test;
+begin
+  var V151: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 435
+===
+procedure Test;
+begin
+  var V299 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 436
+===
+procedure Test;
+begin
+  for var I34 := 0 to 18 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 437
+===
+procedure Test;
+begin
+  var V170: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 438
+===
+procedure Test;
+begin
+  const C853 = 29;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 439
+===
+procedure Test;
+begin
+  var V118: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 440
+===
+procedure Test;
+begin
+  var V241 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 441
+===
+procedure Test;
+begin
+  for var I81 := 0 to 16 do for var I11 := 0 to 12 do var V940 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 442
+===
+procedure Test;
+begin
+  var V515 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 443
+===
+procedure Test;
+begin
+  var V732 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 444
+===
+procedure Test;
+begin
+  const C773 = 77;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 445
+===
+procedure Test;
+begin
+  var V334: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 446
+===
+procedure Test;
+begin
+  for var I69 := 0 to 13 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 447
+===
+procedure Test;
+begin
+  var V819 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 448
+===
+procedure Test;
+begin
+  var V362 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 449
+===
+procedure Test;
+begin
+  for var I79 := 0 to 3 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 450
+===
+procedure Test;
+begin
+  const C38 = 63;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 451
+===
+procedure Test;
+begin
+  var V473: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 452
+===
+procedure Test;
+begin
+  for var I59 := 0 to 11 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 453
+===
+procedure Test;
+begin
+  for var I49 := 0 to 18 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 454
+===
+procedure Test;
+begin
+  var V856 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 455
+===
+procedure Test;
+begin
+  for var I40 := 0 to 8 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 456
+===
+procedure Test;
+begin
+  var V740 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 457
+===
+procedure Test;
+begin
+  const C2 = 28;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 458
+===
+procedure Test;
+begin
+  var V201 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 459
+===
+procedure Test;
+begin
+  for var I0 := 0 to 15 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 460
+===
+procedure Test;
+begin
+  var V402: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 461
+===
+procedure Test;
+begin
+  const C619 = 21;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 462
+===
+procedure Test;
+begin
+  const C512 = 18;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 463
+===
+procedure Test;
+begin
+  var V701 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 464
+===
+procedure Test;
+begin
+  var V8: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 465
+===
+procedure Test;
+begin
+  var V808 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 466
+===
+procedure Test;
+begin
+  var V712 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 467
+===
+procedure Test;
+begin
+  for var I37 := 0 to 5 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 468
+===
+procedure Test;
+begin
+  var V14 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 469
+===
+procedure Test;
+begin
+  var V113 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 470
+===
+procedure Test;
+begin
+  var V449 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 471
+===
+procedure Test;
+begin
+  var V326 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 472
+===
+procedure Test;
+begin
+  var V903 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 473
+===
+procedure Test;
+begin
+  for var I18 := 0 to 16 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 474
+===
+procedure Test;
+begin
+  var V654: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 475
+===
+procedure Test;
+begin
+  const C212 = 67;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 476
+===
+procedure Test;
+begin
+  var V293 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 477
+===
+procedure Test;
+begin
+  var V59 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 478
+===
+procedure Test;
+begin
+  var V461 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 479
+===
+procedure Test;
+begin
+  const C410 = 58;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 480
+===
+procedure Test;
+begin
+  var V274 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 481
+===
+procedure Test;
+begin
+  const C295 = 29;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 482
+===
+procedure Test;
+begin
+  var V910: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 483
+===
+procedure Test;
+begin
+  const C385 = 9;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 484
+===
+procedure Test;
+begin
+  const C51 = 36;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 485
+===
+procedure Test;
+begin
+  var V996 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 486
+===
+procedure Test;
+begin
+  const C639 = 92;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 487
+===
+procedure Test;
+begin
+  for var I56 := 0 to 3 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 488
+===
+procedure Test;
+begin
+  for var I13 := 0 to 0 do var V963: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 489
+===
+procedure Test;
+begin
+  var V576 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 490
+===
+procedure Test;
+begin
+  var V675 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 491
+===
+procedure Test;
+begin
+  for var I65 := 0 to 10 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 492
+===
+procedure Test;
+begin
+  var V663 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 493
+===
+procedure Test;
+begin
+  var V758 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 494
+===
+procedure Test;
+begin
+  var V437 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 495
+===
+procedure Test;
+begin
+  var V310: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 496
+===
+procedure Test;
+begin
+  var V612 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 497
+===
+procedure Test;
+begin
+  var V792 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 498
+===
+procedure Test;
+begin
+  for var I90 := 0 to 19 do const C240 = 52;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 499
+===
+procedure Test;
+begin
+  var V95: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 500
+===
+procedure Test;
+begin
+  var V361 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 501
+===
+procedure Test;
+begin
+  for var I31 := 0 to 16 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 502
+===
+procedure Test;
+begin
+  var V338: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 503
+===
+procedure Test;
+begin
+  var V406 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 504
+===
+procedure Test;
+begin
+  const C307 = 76;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 505
+===
+procedure Test;
+begin
+  var V560: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 506
+===
+procedure Test;
+begin
+  var V814 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 507
+===
+procedure Test;
+begin
+  for var I5 := 0 to 0 do for var I50 := 0 to 9 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 508
+===
+procedure Test;
+begin
+  var V366 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 509
+===
+procedure Test;
+begin
+  var V605 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 510
+===
+procedure Test;
+begin
+  var V958 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 511
+===
+procedure Test;
+begin
+  for var I31 := 0 to 15 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 512
+===
+procedure Test;
+begin
+  var V793 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 513
+===
+procedure Test;
+begin
+  var V538: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 514
+===
+procedure Test;
+begin
+  var V919: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 515
+===
+procedure Test;
+begin
+  var V553 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 516
+===
+procedure Test;
+begin
+  for var I14 := 0 to 7 do var V995 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 517
+===
+procedure Test;
+begin
+  var V299 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 518
+===
+procedure Test;
+begin
+  var V145 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 519
+===
+procedure Test;
+begin
+  var V40 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 520
+===
+procedure Test;
+begin
+  for var I70 := 0 to 5 do for var I24 := 0 to 14 do var V781 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 521
+===
+procedure Test;
+begin
+  var V184: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 522
+===
+procedure Test;
+begin
+  var V892 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 523
+===
+procedure Test;
+begin
+  var V402 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 524
+===
+procedure Test;
+begin
+  var V482 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 525
+===
+procedure Test;
+begin
+  var V80: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 526
+===
+procedure Test;
+begin
+  var V478 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 527
+===
+procedure Test;
+begin
+  const C427 = 2;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 528
+===
+procedure Test;
+begin
+  var V958 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 529
+===
+procedure Test;
+begin
+  var V942 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 530
+===
+procedure Test;
+begin
+  var V235 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 531
+===
+procedure Test;
+begin
+  var V366 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 532
+===
+procedure Test;
+begin
+  var V951: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 533
+===
+procedure Test;
+begin
+  var V989 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 534
+===
+procedure Test;
+begin
+  for var I97 := 0 to 3 do var V523 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 535
+===
+procedure Test;
+begin
+  var V851: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 536
+===
+procedure Test;
+begin
+  var V140 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 537
+===
+procedure Test;
+begin
+  const C38 = 27;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 538
+===
+procedure Test;
+begin
+  var V817 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 539
+===
+procedure Test;
+begin
+  for var I42 := 0 to 1 do var V219 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 540
+===
+procedure Test;
+begin
+  var V927 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 541
+===
+procedure Test;
+begin
+  for var I83 := 0 to 8 do var V799 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 542
+===
+procedure Test;
+begin
+  for var I3 := 0 to 7 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 543
+===
+procedure Test;
+begin
+  const C870 = 87;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 544
+===
+procedure Test;
+begin
+  for var I83 := 0 to 2 do var V777 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 545
+===
+procedure Test;
+begin
+  var V478 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 546
+===
+procedure Test;
+begin
+  var V383: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 547
+===
+procedure Test;
+begin
+  var V217 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 548
+===
+procedure Test;
+begin
+  var V471: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 549
+===
+procedure Test;
+begin
+  for var I6 := 0 to 0 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 550
+===
+procedure Test;
+begin
+  var V566 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 551
+===
+procedure Test;
+begin
+  for var I79 := 0 to 5 do for var I4 := 0 to 4 do var V870: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 552
+===
+procedure Test;
+begin
+  var V878: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 553
+===
+procedure Test;
+begin
+  const C43 = 91;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 554
+===
+procedure Test;
+begin
+  var V730: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 555
+===
+procedure Test;
+begin
+  const C454 = 85;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 556
+===
+procedure Test;
+begin
+  for var I92 := 0 to 8 do var V413 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 557
+===
+procedure Test;
+begin
+  var V545: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 558
+===
+procedure Test;
+begin
+  var V357 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 559
+===
+procedure Test;
+begin
+  var V266 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 560
+===
+procedure Test;
+begin
+  var V216 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 561
+===
+procedure Test;
+begin
+  for var I74 := 0 to 4 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 562
+===
+procedure Test;
+begin
+  var V5: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 563
+===
+procedure Test;
+begin
+  const C121 = 78;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 564
+===
+procedure Test;
+begin
+  var V695 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 565
+===
+procedure Test;
+begin
+  var V276: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 566
+===
+procedure Test;
+begin
+  var V108 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 567
+===
+procedure Test;
+begin
+  const C258 = 49;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 568
+===
+procedure Test;
+begin
+  const C73 = 17;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 569
+===
+procedure Test;
+begin
+  var V634 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 570
+===
+procedure Test;
+begin
+  var V375 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 571
+===
+procedure Test;
+begin
+  var V86 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 572
+===
+procedure Test;
+begin
+  const C399 = 70;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 573
+===
+procedure Test;
+begin
+  const C725 = 27;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 574
+===
+procedure Test;
+begin
+  var V460 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 575
+===
+procedure Test;
+begin
+  var V572 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 576
+===
+procedure Test;
+begin
+  const C695 = 75;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 577
+===
+procedure Test;
+begin
+  var V647 := 20;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 578
+===
+procedure Test;
+begin
+  var V939: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+
+===
+Fuzzed Inline 579
+===
+procedure Test;
+begin
+  for var I46 := 0 to 3 do G := 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (identifier) (kAssign) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 580
+===
+procedure Test;
+begin
+  for var I4 := 0 to 4 do var V67 := G + 1;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (for (kFor) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (literalNumber)) (kTo) (literalNumber) (kDo) (assignment (varAssignDef (kVar) (identifier)) (kAssign) (exprBinary (identifier) (kAdd) (literalNumber)))) (kEnd))))
+
+===
+Fuzzed Inline 581
+===
+procedure Test;
+begin
+  const C989 = 76;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (inlineConst (kConst) (identifier) (defaultValue (kEq) (literalNumber))) (kEnd))))
+
+===
+Fuzzed Inline 582
+===
+procedure Test;
+begin
+  var V211: Integer := 10;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (varAssignDef (kVar) (identifier) (typeref (identifier))) (kAssign) (literalNumber)) (kEnd))))
+

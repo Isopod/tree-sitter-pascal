@@ -1,0 +1,1792 @@
+===
+Fuzzed Multiline 1
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' + 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 2
+===
+procedure Test;
+begin
+  S := 'normal string' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 3
+===
+procedure Test;
+begin
+  S := 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalString)) (kEnd))))
+
+===
+Fuzzed Multiline 4
+===
+procedure Test;
+begin
+  S := '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline)) (kEnd))))
+
+===
+Fuzzed Multiline 5
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else if True then '''   Indented content''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 6
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 7
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 8
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalString) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 9
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else 'normal string' + '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 10
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 11
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' + 'normal string' else '''Contains ''double quotes''''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 12
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 13
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 14
+===
+procedure Test;
+begin
+  S := '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline (stringContent))) (kEnd))))
+
+===
+Fuzzed Multiline 15
+===
+procedure Test;
+begin
+  S := '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline (stringContent))) (kEnd))))
+
+===
+Fuzzed Multiline 16
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline (stringContent))) (kEnd))))
+
+===
+Fuzzed Multiline 17
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 18
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline (stringContent))) (kEnd))))
+
+===
+Fuzzed Multiline 19
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (literalStringMultiline (stringContent))) (kEnd))))
+
+===
+Fuzzed Multiline 20
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 21
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 22
+===
+procedure Test;
+begin
+  S := if True then '''   Indented content''' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 23
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 24
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''Contains ''double quotes''''' else '''''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))) (kElse) (exprBinary (literalStringMultiline) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 25
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 26
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 27
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else 'normal string' + if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kAdd) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 28
+===
+procedure Test;
+begin
+  S := '''''' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 29
+===
+procedure Test;
+begin
+  S := if True then '''''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 30
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''   Indented content''' + 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))) (kAdd) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 31
+===
+procedure Test;
+begin
+  S := if True then '''''' else '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 32
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 33
+===
+procedure Test;
+begin
+  S := if True then '''   Indented content''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 34
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 35
+===
+procedure Test;
+begin
+  S := if True then '''''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 36
+===
+procedure Test;
+begin
+  S := 'normal string' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalString) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 37
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 38
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + 'normal string' + if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kAdd) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 39
+===
+procedure Test;
+begin
+  S := 'normal string' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 40
+===
+procedure Test;
+begin
+  S := if True then '''
+
+
+Multiple newlines
+
+
+''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 41
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else 'normal string' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 42
+===
+procedure Test;
+begin
+  S := if True then '''''' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 43
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 44
+===
+procedure Test;
+begin
+  S := 'normal string' + '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 45
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 46
+===
+procedure Test;
+begin
+  S := '''''' + 'normal string' + if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline) (kAdd) (literalString)) (kAdd) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 47
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 48
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 49
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 50
+===
+procedure Test;
+begin
+  S := 'normal string' + '''
+
+
+Multiple newlines
+
+
+''' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 51
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 52
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 53
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + '''   Indented content''' else 'normal string' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kElse) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 54
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + '''   Indented content''' + '''''' + '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 55
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 56
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''
+
+
+Multiple newlines
+
+
+''' else if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 57
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 58
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + 'normal string' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 59
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''Contains ''double quotes''''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 60
+===
+procedure Test;
+begin
+  S := '''''' + 'normal string' + if True then 'normal string' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline) (kAdd) (literalString)) (kAdd) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 61
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else if True then '''   Indented content''' else '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 62
+===
+procedure Test;
+begin
+  S := 'normal string' + '''
+
+
+Multiple newlines
+
+
+''' + ('normal string' + '''''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalStringMultiline))))) (kEnd))))
+
+===
+Fuzzed Multiline 63
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 64
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else '''   Indented content''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 65
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + 'normal string' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 66
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''''' else if True then '''''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 67
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 68
+===
+procedure Test;
+begin
+  S := if True then '''''' else if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 69
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else 'normal string') + ('''Contains ''double quotes''''' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))) (kAdd) (exprParens (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 70
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 71
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + 'normal string' + (if True then '''   Indented content''' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 72
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + 'normal string' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 73
+===
+procedure Test;
+begin
+  S := 'normal string' + '''Contains ''double quotes''''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 74
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' + 'normal string' else if True then '''Hello World''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 75
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 76
+===
+procedure Test;
+begin
+  S := if True then '''''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 77
+===
+procedure Test;
+begin
+  S := '''Hello World''' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 78
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 79
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 80
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''' + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 81
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else '''''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprBinary (literalStringMultiline) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 82
+===
+procedure Test;
+begin
+  S := '''Hello World''' + 'normal string' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 83
+===
+procedure Test;
+begin
+  S := '''''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 84
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 85
+===
+procedure Test;
+begin
+  S := if True then '''   Indented content''' else if True then 'normal string' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 86
+===
+procedure Test;
+begin
+  S := (if True then '''Hello World''' else 'normal string') + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 87
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 88
+===
+procedure Test;
+begin
+  S := '''''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 89
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 90
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + '''Hello World''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 91
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else 'normal string' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 92
+===
+procedure Test;
+begin
+  S := '''''' + ('normal string' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 93
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + ('''Hello World''' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (exprParens (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 94
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''Contains keywords: if then else begin end''') + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 95
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else 'normal string') + ('''
+
+
+Multiple newlines
+
+
+''' + '''   Indented content''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))) (kAdd) (exprParens (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 96
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 97
+===
+procedure Test;
+begin
+  S := '''''' + '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 98
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 99
+===
+procedure Test;
+begin
+  S := '''Hello World''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString))) (kEnd))))
+
+===
+Fuzzed Multiline 100
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''   Indented content''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 101
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + '''Hello World''' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 102
+===
+procedure Test;
+begin
+  S := if True then '''Hello World''' else 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 103
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''''' else 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)) (kElse) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 104
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''Hello World''') + ('normal string' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 105
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' + 'normal string' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 106
+===
+procedure Test;
+begin
+  S := '''Hello World''' + '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 107
+===
+procedure Test;
+begin
+  S := if True then if True then '''   Indented content''' else '''Hello World''' else '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 108
+===
+procedure Test;
+begin
+  S := '''''' + '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 109
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalString)) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 110
+===
+procedure Test;
+begin
+  S := '''''' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 111
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''Hello World''') + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 112
+===
+procedure Test;
+begin
+  S := if True then '''
+
+
+Multiple newlines
+
+
+''' + 'normal string' else 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 113
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + '''''' else 'normal string' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalStringMultiline)) (kElse) (exprBinary (literalString) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 114
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 115
+===
+procedure Test;
+begin
+  S := (if True then '''   Indented content''' else 'normal string') + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 116
+===
+procedure Test;
+begin
+  S := '''Hello World''' + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 117
+===
+procedure Test;
+begin
+  S := if True then if True then '''
+
+
+Multiple newlines
+
+
+''' else '''Contains keywords: if then else begin end''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 118
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else if True then 'normal string' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline)))) (kEnd))))
+
+===
+Fuzzed Multiline 119
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + 'normal string' + ('normal string' + '''Hello World''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 120
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + '''   Indented content''' + (if True then '''Contains keywords: if then else begin end''' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 121
+===
+procedure Test;
+begin
+  S := '''''' + ('normal string' + '''   Indented content''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 122
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + 'normal string' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 123
+===
+procedure Test;
+begin
+  S := if True then 'normal string' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 124
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''' + '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 125
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + (if True then 'normal string' else '''Hello World''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 126
+===
+procedure Test;
+begin
+  S := if True then '''Contains ''double quotes''''' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 127
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 128
+===
+procedure Test;
+begin
+  S := if True then '''   Indented content''' + 'normal string' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 129
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''''') + ('normal string' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline))) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 130
+===
+procedure Test;
+begin
+  S := if True then '''   Indented content''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 131
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 132
+===
+procedure Test;
+begin
+  S := '''Hello World''' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 133
+===
+procedure Test;
+begin
+  S := '''Contains ''double quotes''''' + '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 134
+===
+procedure Test;
+begin
+  S := if True then '''''' + 'normal string' else if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalStringMultiline) (kAdd) (literalString)) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 135
+===
+procedure Test;
+begin
+  S := if True then 'normal string' + 'normal string' else '''Contains ''double quotes''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprBinary (literalString) (kAdd) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 136
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 137
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + ('normal string' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 138
+===
+procedure Test;
+begin
+  S := '''Hello World''' + '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 139
+===
+procedure Test;
+begin
+  S := '''Contains keywords: if then else begin end''' + ('normal string' + 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprBinary (literalString) (kAdd) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 140
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else 'normal string') + (if True then '''Contains keywords: if then else begin end''' else '''Contains ''double quotes''''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 141
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + '''   Indented content''' + '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent))) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 142
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else '''Contains keywords: if then else begin end''' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent))) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 143
+===
+procedure Test;
+begin
+  S := if True then '''''' else '''
+
+
+Multiple newlines
+
+
+''' + 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 144
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else '''   Indented content''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 145
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 146
+===
+procedure Test;
+begin
+  S := 'normal string' + 'normal string' + (if True then '''Hello World''' else '''Contains ''double quotes''''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalString) (kAdd) (literalString)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 147
+===
+procedure Test;
+begin
+  S := if True then if True then '''
+
+
+Multiple newlines
+
+
+''' else '''''' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 148
+===
+procedure Test;
+begin
+  S := if True then if True then '''   Indented content''' else '''Contains ''double quotes''''' else if True then '''Contains ''double quotes''''' else '''Contains keywords: if then else begin end''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 149
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''Hello World''') + (if True then 'normal string' else '''   Indented content''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 150
+===
+procedure Test;
+begin
+  S := if True then if True then '''Hello World''' else '''Contains keywords: if then else begin end''' else if True then 'normal string' else 'normal string';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent))) (kElse) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)))) (kEnd))))
+
+===
+Fuzzed Multiline 151
+===
+procedure Test;
+begin
+  S := if True then if True then 'normal string' else 'normal string' else '''Hello World''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString)) (kElse) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 152
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + (if True then 'normal string' else '''''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline))))) (kEnd))))
+
+===
+Fuzzed Multiline 153
+===
+procedure Test;
+begin
+  S := '''Hello World''' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline (stringContent)))) (kEnd))))
+
+===
+Fuzzed Multiline 154
+===
+procedure Test;
+begin
+  S := '''   Indented content''' + (if True then '''
+
+
+Multiple newlines
+
+
+''' else '''   Indented content''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (literalStringMultiline (stringContent)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 155
+===
+procedure Test;
+begin
+  S := (if True then '''   Indented content''' else 'normal string') + (if True then '''''' else '''Contains ''double quotes''''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 156
+===
+procedure Test;
+begin
+  S := if True then '''Contains keywords: if then else begin end''' else '''''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline))) (kEnd))))
+
+===
+Fuzzed Multiline 157
+===
+procedure Test;
+begin
+  S := (if True then '''Contains ''double quotes''''' else 'normal string') + (if True then '''
+
+
+Multiple newlines
+
+
+''' else '''
+
+
+Multiple newlines
+
+
+''');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalStringMultiline (stringContent)))))) (kEnd))))
+
+===
+Fuzzed Multiline 158
+===
+procedure Test;
+begin
+  S := if True then if True then '''
+
+
+Multiple newlines
+
+
+''' else 'normal string' else 'normal string' + '''
+
+
+Multiple newlines
+
+
+''';
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprIf (kIf) (kTrue) (kThen) (exprIf (kIf) (kTrue) (kThen) (literalStringMultiline (stringContent)) (kElse) (literalString)) (kElse) (exprBinary (literalString) (kAdd) (literalStringMultiline (stringContent))))) (kEnd))))
+
+===
+Fuzzed Multiline 159
+===
+procedure Test;
+begin
+  S := '''
+
+
+Multiple newlines
+
+
+''' + '''''' + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprBinary (literalStringMultiline (stringContent)) (kAdd) (literalStringMultiline)) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+
+===
+Fuzzed Multiline 160
+===
+procedure Test;
+begin
+  S := (if True then 'normal string' else '''Contains ''double quotes''''') + (if True then 'normal string' else 'normal string');
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprBinary (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalStringMultiline (stringContent)))) (kAdd) (exprParens (exprIf (kIf) (kTrue) (kThen) (literalString) (kElse) (literalString))))) (kEnd))))
+

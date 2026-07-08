@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="45.277592mm"
+   viewBox="0 0 200 45.277592"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="object-pascal.svg"
+   inkscape:export-filename="objeect-pascal.webp"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.1962796"
+     inkscape:cx="371.15068"
+     inkscape:cy="35.944773"
+     inkscape:window-width="1671"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"><sodipodi:guide
+       position="185.64201,43.048642"
+       orientation="0,-1"
+       id="guide1"
+       inkscape:locked="false" /><sodipodi:guide
+       position="179.63415,3.4291514"
+       orientation="0,-1"
+       id="guide2"
+       inkscape:locked="false" /></sodipodi:namedview><defs
+     id="defs1"><style
+       id="style1">
+      .cls-1 {
+        fill: #00599c;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #004482;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #659ad2;
+      }
+    </style></defs><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-23.932146,-77.583878)"><image
+       width="45.277592"
+       height="45.277592"
+       preserveAspectRatio="none"
+       xlink:href="ObjectPascal.png"
+       id="image1"
+       x="28.368103"
+       y="77.583878" /><image
+       width="39.619488"
+       height="39.619488"
+       preserveAspectRatio="none"
+       xlink:href="delphi.png"
+       id="image1-3"
+       x="129.9706"
+       y="79.812828" /><image
+       preserveAspectRatio="none"
+       inkscape:svg-dpi="96"
+       width="35.846203"
+       height="39.619492"
+       xlink:href="lazarus.svg"
+       id="image1-0"
+       x="181.24396"
+       y="79.812828" /><image
+       width="39.619492"
+       height="39.619492"
+       preserveAspectRatio="none"
+       xlink:href="oxygene.webp"
+       id="image1-8"
+       x="80.58387"
+       y="79.812828" /></g></svg>

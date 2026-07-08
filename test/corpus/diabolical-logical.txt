@@ -1,0 +1,1090 @@
+===
+Fuzzed Logical 1
+===
+procedure Test;
+begin
+  BVal := (not True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 2
+===
+procedure Test;
+begin
+  BVal := (Obj is not TMyClass);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))) (kEnd))))
+
+===
+Fuzzed Logical 3
+===
+procedure Test;
+begin
+  BVal := (A not in [1, 2, 3]);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))) (kEnd))))
+
+===
+Fuzzed Logical 4
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 5
+===
+procedure Test;
+begin
+  BVal := (not (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 6
+===
+procedure Test;
+begin
+  BVal := (BVal or BVal);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (identifier) (kOr) (identifier)))) (kEnd))))
+
+===
+Fuzzed Logical 7
+===
+procedure Test;
+begin
+  BVal := True;
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (kTrue)) (kEnd))))
+
+===
+Fuzzed Logical 8
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) or (not (BVal and BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 9
+===
+procedure Test;
+begin
+  BVal := (BVal and BVal);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (identifier) (kAnd) (identifier)))) (kEnd))))
+
+===
+Fuzzed Logical 10
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 11
+===
+procedure Test;
+begin
+  BVal := (True and (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 12
+===
+procedure Test;
+begin
+  BVal := (not (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 13
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 14
+===
+procedure Test;
+begin
+  BVal := (not (BVal and BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 15
+===
+procedure Test;
+begin
+  BVal := ((not BVal) or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 16
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (BVal and BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 17
+===
+procedure Test;
+begin
+  BVal := (not ((Obj is not TMyClass) and (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 18
+===
+procedure Test;
+begin
+  BVal := ((not True) and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (kTrue))) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 19
+===
+procedure Test;
+begin
+  BVal := ((not BVal) or (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 20
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) or (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 21
+===
+procedure Test;
+begin
+  BVal := (True and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 22
+===
+procedure Test;
+begin
+  BVal := (not BVal);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (identifier)))) (kEnd))))
+
+===
+Fuzzed Logical 23
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (not (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 24
+===
+procedure Test;
+begin
+  BVal := (True or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 25
+===
+procedure Test;
+begin
+  BVal := (not ((BVal and BVal) or (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 26
+===
+procedure Test;
+begin
+  BVal := ((not (BVal or BVal)) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier))))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 27
+===
+procedure Test;
+begin
+  BVal := (not (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 28
+===
+procedure Test;
+begin
+  BVal := (not ((A not in [1, 2, 3]) or (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 29
+===
+procedure Test;
+begin
+  BVal := (not ((Obj is not TMyClass) or (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 30
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 31
+===
+procedure Test;
+begin
+  BVal := ((True and (BVal and BVal)) or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (kTrue) (kAnd) (exprParens (exprBinary (identifier) (kAnd) (identifier))))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 32
+===
+procedure Test;
+begin
+  BVal := ((not True) or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (kTrue))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 33
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 34
+===
+procedure Test;
+begin
+  BVal := (not ((not BVal) or (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 35
+===
+procedure Test;
+begin
+  BVal := (True or (BVal and BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 36
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 37
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 38
+===
+procedure Test;
+begin
+  BVal := (((Obj is not TMyClass) and (Obj is not TMyClass)) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier))))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 39
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 40
+===
+procedure Test;
+begin
+  BVal := (not ((BVal and BVal) and (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 41
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 42
+===
+procedure Test;
+begin
+  BVal := (((BVal and BVal) and (BVal and BVal)) and ((A not in [1, 2, 3]) and (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kAnd) (identifier))))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 43
+===
+procedure Test;
+begin
+  BVal := ((not BVal) and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 44
+===
+procedure Test;
+begin
+  BVal := (True or (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 45
+===
+procedure Test;
+begin
+  BVal := (True and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 46
+===
+procedure Test;
+begin
+  BVal := ((not (BVal or BVal)) or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier))))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 47
+===
+procedure Test;
+begin
+  BVal := (not (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 48
+===
+procedure Test;
+begin
+  BVal := (not (True or True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (kTrue) (kOr) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 49
+===
+procedure Test;
+begin
+  BVal := (not (True and True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (kTrue) (kAnd) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 50
+===
+procedure Test;
+begin
+  BVal := (True or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 51
+===
+procedure Test;
+begin
+  BVal := ((not BVal) or (BVal and BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 52
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and (not (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 53
+===
+procedure Test;
+begin
+  BVal := ((not (not BVal)) and ((BVal and BVal) and (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier))))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 54
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 55
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 56
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and ((A not in [1, 2, 3]) or (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 57
+===
+procedure Test;
+begin
+  BVal := (not (not True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 58
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 59
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and ((A not in [1, 2, 3]) or (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 60
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 61
+===
+procedure Test;
+begin
+  BVal := ((not (BVal or BVal)) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier))))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 62
+===
+procedure Test;
+begin
+  BVal := (not ((BVal or BVal) or (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 63
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 64
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 65
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) and ((A not in [1, 2, 3]) and (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 66
+===
+procedure Test;
+begin
+  BVal := ((not BVal) and (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 67
+===
+procedure Test;
+begin
+  BVal := ((not BVal) and (BVal and BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kAnd) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 68
+===
+procedure Test;
+begin
+  BVal := (not (not (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 69
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) and (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 70
+===
+procedure Test;
+begin
+  BVal := (not (not (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 71
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 72
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) and (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 73
+===
+procedure Test;
+begin
+  BVal := ((BVal and BVal) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kAnd) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 74
+===
+procedure Test;
+begin
+  BVal := ((not (A not in [1, 2, 3])) or (not True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))))) (kOr) (exprParens (exprUnary (kNot) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 75
+===
+procedure Test;
+begin
+  BVal := ((not (A not in [1, 2, 3])) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 76
+===
+procedure Test;
+begin
+  BVal := (True or (not (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 77
+===
+procedure Test;
+begin
+  BVal := ((not BVal) or (not BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprUnary (kNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 78
+===
+procedure Test;
+begin
+  BVal := (not ((not BVal) or (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 79
+===
+procedure Test;
+begin
+  BVal := ((not BVal) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 80
+===
+procedure Test;
+begin
+  BVal := (not (not (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 81
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 82
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (not (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 83
+===
+procedure Test;
+begin
+  BVal := (True and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 84
+===
+procedure Test;
+begin
+  BVal := ((not (not BVal)) and (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier))))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 85
+===
+procedure Test;
+begin
+  BVal := ((True or (not BVal)) and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprUnary (kNot) (identifier))))) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 86
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or ((BVal or BVal) and True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 87
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (not True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprUnary (kNot) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 88
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 89
+===
+procedure Test;
+begin
+  BVal := (True or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (kTrue) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 90
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (not (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 91
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and ((A not in [1, 2, 3]) and (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 92
+===
+procedure Test;
+begin
+  BVal := (not (not (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 93
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (not (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 94
+===
+procedure Test;
+begin
+  BVal := (((A not in [1, 2, 3]) and (Obj is not TMyClass)) and (True or (A not in [1, 2, 3])));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier))))) (kAnd) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))))) (kEnd))))
+
+===
+Fuzzed Logical 95
+===
+procedure Test;
+begin
+  BVal := ((not (BVal or BVal)) or True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprBinary (identifier) (kOr) (identifier))))) (kOr) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 96
+===
+procedure Test;
+begin
+  BVal := ((not (not BVal)) and (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier))))) (kAnd) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 97
+===
+procedure Test;
+begin
+  BVal := (((Obj is not TMyClass) or True) and ((Obj is not TMyClass) or (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (kTrue))) (kAnd) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 98
+===
+procedure Test;
+begin
+  BVal := (not ((A not in [1, 2, 3]) and True));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (kTrue)))))) (kEnd))))
+
+===
+Fuzzed Logical 99
+===
+procedure Test;
+begin
+  BVal := (not ((BVal or BVal) or (Obj is not TMyClass)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 100
+===
+procedure Test;
+begin
+  BVal := (not ((A not in [1, 2, 3]) and (BVal or BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 101
+===
+procedure Test;
+begin
+  BVal := ((A not in [1, 2, 3]) or (A not in [1, 2, 3]));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber)))) (kOr) (exprParens (exprBinary (identifier) (kNotIn) (exprBrackets (literalNumber) (literalNumber) (literalNumber))))))) (kEnd))))
+
+===
+Fuzzed Logical 102
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 103
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) and (BVal or BVal));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (exprParens (exprBinary (identifier) (kOr) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 104
+===
+procedure Test;
+begin
+  BVal := ((not (not BVal)) or (True and (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier))))) (kOr) (exprParens (exprBinary (kTrue) (kAnd) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 105
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 106
+===
+procedure Test;
+begin
+  BVal := ((BVal or BVal) and True);
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kOr) (identifier))) (kAnd) (kTrue)))) (kEnd))))
+
+===
+Fuzzed Logical 107
+===
+procedure Test;
+begin
+  BVal := ((Obj is not TMyClass) and (not (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (identifier) (kIsNot) (identifier))) (kAnd) (exprParens (exprUnary (kNot) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+
+===
+Fuzzed Logical 108
+===
+procedure Test;
+begin
+  BVal := ((True and True) or (Obj is not TMyClass));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprBinary (exprParens (exprBinary (kTrue) (kAnd) (kTrue))) (kOr) (exprParens (exprBinary (identifier) (kIsNot) (identifier)))))) (kEnd))))
+
+===
+Fuzzed Logical 109
+===
+procedure Test;
+begin
+  BVal := (not (True or (not BVal)));
+end;
+---
+(root (defProc (declProc (kProcedure) (identifier)) (block (kBegin) (assignment (identifier) (kAssign) (exprParens (exprUnary (kNot) (exprParens (exprBinary (kTrue) (kOr) (exprParens (exprUnary (kNot) (identifier)))))))) (kEnd))))
+

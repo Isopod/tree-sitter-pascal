@@ -1,0 +1,80 @@
+unit modernDelphi;
+
+interface
+
+uses
+  System.Classes;
+
+type
+  { Custom Managed Records (Delphi 10.4) }
+  TManagedRecord = record
+    Value: Integer;
+    class operator Initialize(out Dest: TManagedRecord);
+    class operator Finalize(var Dest: TManagedRecord);
+    class operator Assign(var Dest: TManagedRecord; const  [ref]  Src: TManagedRecord);
+  end;
+
+implementation
+
+procedure TestModernFeatures;
+begin
+  { Numeric Separators & Binary Literals (Delphi 12) }
+  var LargeInt := 1_000_000;
+  var BinVal := %1010_0101;
+  var HexVal := $FF_FF;
+  var FloatVal := 1_234.567_89;
+
+  { Inline Variable & Constant Declarations (Delphi 10.3 / 12) }
+  var I: Integer := 10;
+  const Msg = 'Hello';
+  for var J := 0 to 10 do
+    WriteLn(J);
+
+  { Ternary if Expressions (Delphi 13) }
+  var Status := if I > 5 then 'High' else 'Low';
+  var Nested := if I > 10 then 'Huge' else if I > 5 then 'Medium' else 'Small';
+
+  { Extended Logical Operators (Delphi 13) }
+  var obj := TStringList.Create;
+  if obj is not TStrings then Exit;
+  if I not in [1, 2, 3] then WriteLn('Not in set');
+
+  { Multi-line String Literals (Delphi 12) }
+  var SQL := '''
+    SELECT Name, Value
+    FROM MyTable
+    WHERE ID = 1
+    ''';
+
+  { Case 'otherwise' Keyword (Delphi 12) }
+  case I of
+    1..5: WriteLn('Small');
+    6..10: WriteLn('Large');
+  else
+    WriteLn('Out of range');
+  end;
+end;
+
+{ Managed Record Implementations }
+class operator TManagedRecord.Initialize(out Dest: TManagedRecord);
+begin
+  Dest.Value := 0;
+end;
+
+class operator TManagedRecord.Finalize(var Dest: TManagedRecord);
+begin
+  // Cleanup
+end;
+
+class operator TManagedRecord.Assign(var Dest: TManagedRecord; const { [ref] } Src: TManagedRecord);
+begin
+  Dest.Value := Src.Value;
+end;
+
+{$ifdef FOO}
+  {$ifdef BAR}
+    // Nested Preprocessor Support
+  {$endif}
+{$endif}
+
+end.

@@ -1,0 +1,231 @@
+name: Build Native Libraries
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      platforms:
+        description: 'Comma-separated platforms (Win32,Win64,Linux64,macOS-x64,macOS-arm64,WASM)'
+        required: false
+        default: 'Win32,Win64,Linux64,macOS-x64,macOS-arm64,WASM'
+  workflow_call:
+    inputs:
+      tag_name:
+        required: true
+        type: string
+
+jobs:
+  build-windows:
+    name: Build Windows DLLs
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.13.0
+
+      - name: Build core and Pascal grammar (Win32 & Win64)
+        shell: pwsh
+        run: |
+          .\scripts\build.ps1 -Platforms Win32,Win64
+
+      - name: Rename DLLs with platform suffix for release assets
+        shell: pwsh
+        run: |
+          $platforms = [ordered]@{
+            'Win32' = 'windows-x86'
+            'Win64' = 'windows-x64'
+          }
+          foreach ($plat in $platforms.Keys) {
+            $suffix = $platforms[$plat]
+            $dir = "Libs/$plat"
+            foreach ($dll in (Get-ChildItem "$dir/*.dll" -ErrorAction SilentlyContinue)) {
+              $base = $dll.BaseName
+              if ($base -like "*-windows-*") { continue } # Skip already renamed
+              $dest = "$dir/${base}-${suffix}.dll"
+              Copy-Item $dll.FullName $dest
+              Write-Host "  $($dll.Name) -> $(Split-Path $dest -Leaf)"
+            }
+          }
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-dlls
+          path: |
+            Libs/Win32/*-windows-x86.dll
+            Libs/Win64/*-windows-x64.dll
+          retention-days: 7
+
+  build-linux:
+    name: Build Linux shared libraries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.13.0
+
+      - name: Build core and Pascal grammar (Linux64)
+        shell: pwsh
+        run: |
+          .\scripts\build.ps1 -Platforms Linux64
+
+      - name: Rename .so files with platform suffix
+        shell: pwsh
+        run: |
+          Get-ChildItem 'Libs/Linux64/libtree-sitter*.so' | ForEach-Object {
+            $base = $_.BaseName            # libtree-sitter-pascal
+            if ($base -like "*-linux-x64") { return }
+            $name = $base -replace '^lib', '' # tree-sitter-pascal
+            $dest = "Libs/Linux64/${name}-linux-x64.so"
+            Copy-Item $_.FullName $dest
+            Write-Host "  $($_.Name) -> $(Split-Path $dest -Leaf)"
+          }
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-libs
+          path: Libs/Linux64/*-linux-x64.so
+          retention-days: 7
+
+  build-macos:
+    name: Build macOS dylibs
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.13.0
+
+      - name: Build core and Pascal grammar (macOS-x64 & macOS-arm64)
+        shell: pwsh
+        run: |
+          .\scripts\build.ps1 -Platforms macOS-x64,macOS-arm64
+
+      - name: Rename dylibs with platform suffix
+        shell: pwsh
+        run: |
+          foreach ($plat in @('macOS-x64', 'macOS-arm64')) {
+            $suffix = $plat -replace 'macOS-', 'macos-'
+            Get-ChildItem "Libs/$plat/libtree-sitter*.dylib" | ForEach-Object {
+              $base = $_.BaseName
+              if ($base -like "*-macos-*") { return }
+              $name = $base -replace '^lib', ''
+              $dest = "Libs/$plat/${name}-${suffix}.dylib"
+              Copy-Item $_.FullName $dest
+              Write-Host "  $($_.Name) -> $(Split-Path $dest -Leaf)"
+            }
+          }
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-libs
+          path: |
+            Libs/macOS-x64/*-macos-x64.dylib
+            Libs/macOS-arm64/*-macos-arm64.dylib
+          retention-days: 7
+
+  build-wasm:
+    name: Build WASM binaries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup emscripten
+        uses: mymindstorm/setup-emsdk@v14
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'bindings/node/package-lock.json'
+
+      - name: Install dependencies
+        run: cd bindings/node && npm install
+
+      - name: Build WASM grammar
+        shell: pwsh
+        run: |
+          .\scripts\build.ps1 -Platforms WASM
+
+      - name: Download tree-sitter core WASM
+        run: |
+          TS_VERSION=$(node -p "require('./bindings/node/node_modules/tree-sitter-cli/package.json').version")
+          echo "Downloading tree-sitter.wasm v${TS_VERSION}"
+          curl -fL "https://github.com/tree-sitter/tree-sitter/releases/download/v${TS_VERSION}/tree-sitter.wasm" \
+            -o Libs/WASM/tree-sitter.wasm
+
+      - name: Upload WASM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasm-libs
+          path: Libs/WASM/*.wasm
+          retention-days: 7
+
+  publish-release:
+    name: Publish GitHub Release
+    needs: [build-windows, build-linux, build-macos, build-wasm]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Tag
+        id: get_tag
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.tag_name }}" ]; then
+            echo "TAG_NAME=${{ inputs.tag_name }}" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+          else
+            LATEST_TAG=$(git describe --tags --abbrev=0)
+            echo "TAG_NAME=$LATEST_TAG" >> $GITHUB_ENV
+          fi
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+
+      - name: Create / update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          files: release-assets/**
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

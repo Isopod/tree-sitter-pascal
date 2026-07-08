@@ -1,0 +1,365 @@
+===
+Inline Constants
+===
+procedure Test;
+begin
+  const A = 10;
+  const B: Integer = 20;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (inlineConst
+    (kConst)
+    (identifier)
+    (defaultValue
+     (kEq)
+     (literalNumber)))
+   (inlineConst
+    (kConst)
+    (identifier)
+    (type
+     (typeref
+      (identifier)))
+    (defaultValue
+     (kEq)
+     (literalNumber)))
+   (kEnd))))
+
+===
+Delphi 12 Multi-line String
+===
+procedure Test;
+var
+  S: string;
+begin
+  S := '''
+    This is a
+    multi-line
+    string
+    '''
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (declVars
+   (kVar)
+   (declVar
+    (identifier)
+    (type
+     (declString
+      (kString)))))
+  (block
+   (kBegin)
+   (assignment
+    (identifier)
+    (kAssign)
+    (literalStringMultiline
+     (stringContent)))
+   (kEnd))))
+
+===
+Numeric Underscores
+===
+procedure Test;
+begin
+  var i := 1_000_000;
+  var f := 1.234_567;
+  var h := $FF_AA
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (kEnd))))
+
+===
+Binary Literals
+===
+procedure Test;
+begin
+  var b := %101010
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (kEnd))))
+
+===
+Case Otherwise
+===
+procedure Test;
+begin
+  case X of
+    1: DoOne;
+    otherwise DoElse
+  end
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (case
+    (kCase)
+    (identifier)
+    (kOf)
+    (caseCase
+     (caseLabel
+      (literalNumber))
+     (statement
+      (identifier)))
+    (kOtherwise)
+    (statement
+     (identifier))
+    (kEnd))
+   (kEnd))))
+
+===
+Nested Generics Conflict
+===
+procedure Test;
+begin
+  Assert(X < Y);
+  List := TList<TList<Integer>>.Create
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (statement
+    (exprCall
+     (identifier)
+     (exprArgs
+      (exprBinary
+       (identifier)
+       (kLt)
+       (identifier)))))
+   (assignment
+    (identifier)
+    (kAssign)
+    (exprDot
+     (exprTpl
+      (identifier)
+      (kLt)
+      (exprTpl
+       (identifier)
+       (kLt)
+       (identifier)
+       (kGt))
+      (kGt))
+     (kDot)
+     (identifier)))
+   (kEnd))))
+
+===
+For-in with Inline Variable
+===
+procedure Test;
+begin
+  for var Item in List do
+    DoSomething(Item);
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (foreach
+    (kFor)
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kIn)
+    (identifier)
+    (kDo)
+    (statement
+     (exprCall
+      (identifier)
+      (exprArgs
+       (identifier)))))
+   (kEnd))))
+
+===
+Inline Variable with Type Inference
+===
+procedure Test;
+begin
+  var I := 10;
+  var S := 'Hello';
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalNumber))
+   (assignment
+    (varAssignDef
+     (kVar)
+     (identifier))
+    (kAssign)
+    (literalString))
+   (kEnd))))
+
+===
+Ternary If Expression
+===
+procedure Test;
+begin
+  Result := if A > B then A else B;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (assignment
+    (identifier)
+    (kAssign)
+    (exprIf
+     (kIf)
+     (exprBinary
+      (identifier)
+      (kGt)
+      (identifier))
+     (kThen)
+     (identifier)
+     (kElse)
+     (identifier)))
+   (kEnd))))
+
+===
+Logical Operators (is not, not in)
+===
+procedure Test;
+begin
+  if A is not B then;
+  if X not in Y then;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (if
+    (kIf)
+    (exprBinary
+     (identifier)
+     (kIsNot)
+     (identifier))
+    (kThen))
+   (if
+    (kIf)
+    (exprBinary
+     (identifier)
+     (kNotIn)
+     (identifier))
+    (kThen))
+   (kEnd))))
+
+===
+Custom Managed Records
+===
+type
+  TMyRecord = record
+    class operator Initialize(out Dest: TMyRecord);
+    class operator Finalize(var Dest: TMyRecord);
+  end;
+---
+(root
+ (declTypes
+  (kType)
+  (declType
+   (identifier)
+   (kEq)
+   (declClass
+    (kRecord)
+    (declProc
+     (kClass)
+     (kOperator)
+     (identifier)
+     (declArgs
+      (declArg
+       (kOut)
+       (identifier)
+       (type
+        (typeref
+         (identifier))))))
+    (declProc
+     (kClass)
+     (kOperator)
+     (identifier)
+     (declArgs
+      (declArg
+       (kVar)
+       (identifier)
+       (type
+        (typeref
+         (identifier))))))
+    (kEnd)))))

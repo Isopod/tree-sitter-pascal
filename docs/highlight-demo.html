@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree-sitter-pascal — Syntax Highlighting Demo</title>
+    <link id="theme-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; padding: 2rem; transition: background 0.2s, color 0.2s; }
+        header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+        h1 { font-size: 1.5rem; font-weight: 600; }
+        h1 span { color: #7c8cf8; }
+        .controls { display: flex; align-items: center; gap: 0.75rem; }
+        label { font-size: 0.875rem; color: #aaa; }
+        select { background: #2d2d44; border: 1px solid #444; color: #eee; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.875rem; cursor: pointer; outline: none; }
+        select:focus { border-color: #7c8cf8; }
+        .code-container { border-radius: 10px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+        .code-header { background: #2d2d44; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red   { background: #ff5f56; }
+        .dot-yellow{ background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .filename { margin-left: 0.5rem; font-size: 0.8rem; color: #888; font-family: monospace; }
+        pre { margin: 0; border-radius: 0; }
+        pre code.hljs { font-size: 0.88rem !important; line-height: 1.65 !important; padding: 1.5rem !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>tree-sitter-<span>pascal</span> &mdash; Syntax Highlighting Demo</h1>
+        <div class="controls">
+            <label for="theme-select">Theme</label>
+            <select id="theme-select" onchange="switchTheme(this.value)">
+                <optgroup label="Dark">
+                    <option value="github-dark" selected>GitHub Dark</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="nord">Nord</option>
+                    <option value="atom-one-dark">Atom One Dark</option>
+                    <option value="vs2015">VS 2015</option>
+                    <option value="night-owl">Night Owl</option>
+                    <option value="tokyo-night-dark">Tokyo Night</option>
+                    <option value="solarized-dark">Solarized Dark</option>
+                    <option value="agate">Agate</option>
+                </optgroup>
+                <optgroup label="Light">
+                    <option value="github">GitHub Light</option>
+                    <option value="atom-one-light">Atom One Light</option>
+                    <option value="vs">Visual Studio</option>
+                    <option value="solarized-light">Solarized Light</option>
+                    <option value="xcode">Xcode</option>
+                </optgroup>
+            </select>
+        </div>
+    </header>
+
+    <div class="code-container">
+        <div class="code-header">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+            <span class="filename">modernDelphi.pas</span>
+        </div>
+        <pre><code class="language-delphi">unit modernDelphi;
+
+interface
+
+uses
+  System.Classes;
+
+type
+  { Custom Managed Records (Delphi 10.4) }
+  TManagedRecord = record
+    Value: Integer;
+    class operator Initialize(out Dest: TManagedRecord);
+    class operator Finalize(var Dest: TManagedRecord);
+    class operator Assign(var Dest: TManagedRecord; const [ref] Src: TManagedRecord);
+  end;
+
+implementation
+
+procedure TestModernFeatures;
+begin
+  { Numeric Separators &amp; Binary Literals (Delphi 12) }
+  var LargeInt := 1_000_000;
+  var BinVal   := %1010_0101;
+  var HexVal   := $FF_FF;
+  var FloatVal := 1_234.567_89;
+
+  { Inline Variable &amp; Constant Declarations (Delphi 10.3 / 12) }
+  var I: Integer := 10;
+  const Msg = 'Hello';
+  for var J := 0 to 10 do
+    WriteLn(J);
+
+  { Ternary if Expressions (Delphi 13) }
+  var Status := if I &gt; 5 then 'High' else 'Low';
+  var Nested := if I &gt; 10 then 'Huge' else if I &gt; 5 then 'Medium' else 'Small';
+
+  { Extended Logical Operators (Delphi 13) }
+  var obj := TStringList.Create;
+  if obj is not TStrings then Exit;
+  if I not in [1, 2, 3] then WriteLn('Not in set');
+
+  { Multi-line String Literals (Delphi 12) }
+  var SQL := '''
+    SELECT Name, Value
+    FROM MyTable
+    WHERE ID = 1
+    ''';
+
+  { Case statement default branch }
+  case I of
+    1..5:  WriteLn('Small');
+    6..10: WriteLn('Large');
+    else
+      WriteLn('Out of range');
+  end;
+end;
+
+{ Managed Record Implementations }
+class operator TManagedRecord.Initialize(out Dest: TManagedRecord);
+begin
+  Dest.Value := 0;
+end;
+
+class operator TManagedRecord.Finalize(var Dest: TManagedRecord);
+begin
+  // Cleanup
+end;
+
+class operator TManagedRecord.Assign(var Dest: TManagedRecord; const [ref] Src: TManagedRecord);
+begin
+  Dest.Value := Src.Value;
+end;
+
+{$ifdef FOO}
+  {$ifdef BAR}
+    // Nested Preprocessor Support
+  {$endif}
+{$endif}
+
+end.</code></pre>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/delphi.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        const darkThemes = new Set([
+            'github-dark','monokai','dracula','nord','atom-one-dark',
+            'vs2015','night-owl','tokyo-night-dark','solarized-dark','agate'
+        ]);
+
+        function switchTheme(theme) {
+            document.getElementById('theme-css').href =
+                `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/${theme}.min.css`;
+            const dark = darkThemes.has(theme);
+            document.body.style.background = dark ? '#1a1a2e' : '#f0f0f0';
+            document.body.style.color      = dark ? '#eee'    : '#333';
+            document.querySelector('select').style.background = dark ? '#2d2d44' : '#fff';
+            document.querySelector('select').style.color      = dark ? '#eee'    : '#333';
+            document.querySelector('select').style.borderColor = dark ? '#444'   : '#ccc';
+        }
+    </script>
+</body>
+</html>

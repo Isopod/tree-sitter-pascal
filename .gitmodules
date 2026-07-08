@@ -1,0 +1,6 @@
+[submodule "tree-sitter"]
+	path = tree-sitter
+	url = https://github.com/tree-sitter/tree-sitter.git
+[submodule "bindings/delphi"]
+	path = bindings/delphi
+	url = https://github.com/jimmckeeth/delphi-tree-sitter.git

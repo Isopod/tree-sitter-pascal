@@ -1,0 +1,44 @@
+name: Publish WASM Package to Wasmer
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (validate without publishing)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish-wasmer:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.release.tag_name, '-')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Wasmer CLI
+        run: curl https://get.wasmer.io -sSfL | sh
+
+      - name: Publish to Wasmer
+        env:
+          WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+        run: |
+          export PATH="$HOME/.wasmer/bin:$PATH"
+          if [ "$DRY_RUN" = "true" ]; then
+            # `publish --dry-run` can't succeed (its tag step needs a hash
+            # that a real dry-run push never creates), so validate with
+            # `push --dry-run` instead - it's the true no-op check. Version
+            # isn't attached until tag/publish, so no --version needed here.
+            wasmer package push --dry-run
+          else
+            VERSION=$(jq -r '.metadata.version' tree-sitter.json)
+            wasmer package publish --version "$VERSION"
+          fi
