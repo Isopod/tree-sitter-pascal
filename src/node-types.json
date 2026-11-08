@@ -60,10 +60,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -129,7 +125,7 @@
     "named": true,
     "fields": {
       "lhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -178,10 +174,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -213,27 +205,11 @@
           {
             "type": "kAssign",
             "named": true
-          },
-          {
-            "type": "kAssignAdd",
-            "named": true
-          },
-          {
-            "type": "kAssignDiv",
-            "named": true
-          },
-          {
-            "type": "kAssignMul",
-            "named": true
-          },
-          {
-            "type": "kAssignSub",
-            "named": true
           }
         ]
       },
       "rhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -282,10 +258,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -330,6 +302,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -417,6 +393,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -511,6 +491,10 @@
           "named": true
         },
         {
+          "type": "constDef",
+          "named": true
+        },
+        {
           "type": "exprBinary",
           "named": true
         },
@@ -595,10 +579,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -675,6 +655,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -796,10 +780,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -817,6 +797,52 @@
         },
         {
           "type": "range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constDef",
+    "named": true,
+    "fields": {
+      "defaultValue": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "defaultValue",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "kConst",
           "named": true
         }
       ]
@@ -862,7 +888,7 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
@@ -879,6 +905,10 @@
         },
         {
           "type": "kVar",
+          "named": true
+        },
+        {
+          "type": "rttiAttributes",
           "named": true
         }
       ]
@@ -968,10 +998,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -993,6 +1019,10 @@
         },
         {
           "type": "type",
+          "named": true
+        },
+        {
+          "type": "typeref",
           "named": true
         }
       ]
@@ -1062,46 +1092,6 @@
           "named": true
         },
         {
-          "type": "exprBinary",
-          "named": true
-        },
-        {
-          "type": "exprBrackets",
-          "named": true
-        },
-        {
-          "type": "exprCall",
-          "named": true
-        },
-        {
-          "type": "exprDot",
-          "named": true
-        },
-        {
-          "type": "exprParens",
-          "named": true
-        },
-        {
-          "type": "exprSubscript",
-          "named": true
-        },
-        {
-          "type": "exprTpl",
-          "named": true
-        },
-        {
-          "type": "exprUnary",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inherited",
-          "named": true
-        },
-        {
           "type": "kAbstract",
           "named": true
         },
@@ -1111,34 +1101,6 @@
         },
         {
           "type": "kEnd",
-          "named": true
-        },
-        {
-          "type": "kExternal",
-          "named": true
-        },
-        {
-          "type": "kFalse",
-          "named": true
-        },
-        {
-          "type": "kName",
-          "named": true
-        },
-        {
-          "type": "kNil",
-          "named": true
-        },
-        {
-          "type": "kObjccategory",
-          "named": true
-        },
-        {
-          "type": "kObjcclass",
-          "named": true
-        },
-        {
-          "type": "kObjcprotocol",
           "named": true
         },
         {
@@ -1156,26 +1118,6 @@
         {
           "type": "kSealed",
           "named": true
-        },
-        {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
-          "type": "kTrue",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "literalNumber",
-          "named": true
-        },
-        {
-          "type": "literalString",
-          "named": true
         }
       ]
     }
@@ -1190,10 +1132,6 @@
         "types": [
           {
             "type": "procAttribute",
-            "named": true
-          },
-          {
-            "type": "procExternal",
             "named": true
           }
         ]
@@ -1378,10 +1316,6 @@
         },
         {
           "type": "kNil",
-          "named": true
-        },
-        {
-          "type": "kSpecialize",
           "named": true
         },
         {
@@ -1770,10 +1704,6 @@
           {
             "type": "procAttribute",
             "named": true
-          },
-          {
-            "type": "procExternal",
-            "named": true
           }
         ]
       },
@@ -1789,20 +1719,6 @@
             "type": "genericTpl",
             "named": true
           },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "operatorName",
-            "named": true
-          }
-        ]
-      },
-      "resultName": {
-        "multiple": false,
-        "required": false,
-        "types": [
           {
             "type": "identifier",
             "named": true
@@ -1846,10 +1762,6 @@
         },
         {
           "type": "kFunction",
-          "named": true
-        },
-        {
-          "type": "kGeneric",
           "named": true
         },
         {
@@ -1948,10 +1860,6 @@
           {
             "type": "procAttribute",
             "named": true
-          },
-          {
-            "type": "procExternal",
-            "named": true
           }
         ]
       },
@@ -2005,10 +1913,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -2082,10 +1986,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -2108,7 +2008,67 @@
         "required": false,
         "types": [
           {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
             "named": true
           }
         ]
@@ -2167,10 +2127,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -2244,10 +2200,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -2280,7 +2232,67 @@
         "required": false,
         "types": [
           {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
             "named": true
           }
         ]
@@ -2338,10 +2350,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -2361,7 +2369,7 @@
       },
       "type": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "type",
@@ -2407,11 +2415,19 @@
           "named": true
         },
         {
+          "type": "kReadonly",
+          "named": true
+        },
+        {
           "type": "kStored",
           "named": true
         },
         {
           "type": "kWrite",
+          "named": true
+        },
+        {
+          "type": "kWriteonly",
           "named": true
         },
         {
@@ -2469,10 +2485,6 @@
           "named": true
         },
         {
-          "type": "kOptional",
-          "named": true
-        },
-        {
           "type": "kPrivate",
           "named": true
         },
@@ -2486,10 +2498,6 @@
         },
         {
           "type": "kPublished",
-          "named": true
-        },
-        {
-          "type": "kRequired",
           "named": true
         },
         {
@@ -2579,10 +2587,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kString",
           "named": true
         },
@@ -2606,6 +2610,152 @@
     }
   },
   {
+    "type": "declSubrange",
+    "named": true,
+    "fields": {
+      "high": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      },
+      "low": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
+            "named": true
+          },
+          {
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "declType",
     "named": true,
     "fields": {
@@ -2615,10 +2765,6 @@
         "types": [
           {
             "type": "procAttribute",
-            "named": true
-          },
-          {
-            "type": "procExternal",
             "named": true
           }
         ]
@@ -2673,11 +2819,27 @@
       "required": true,
       "types": [
         {
+          "type": "kDeprecated",
+          "named": true
+        },
+        {
           "type": "kEq",
           "named": true
         },
         {
-          "type": "kGeneric",
+          "type": "kExperimental",
+          "named": true
+        },
+        {
+          "type": "kLibraryHint",
+          "named": true
+        },
+        {
+          "type": "kPlatform",
+          "named": true
+        },
+        {
+          "type": "literalString",
           "named": true
         },
         {
@@ -2709,11 +2871,26 @@
   {
     "type": "declUses",
     "named": true,
-    "fields": {},
+    "fields": {
+      "path": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "kIn",
+          "named": true
+        },
         {
           "type": "kUses",
           "named": true
@@ -2735,10 +2912,6 @@
         "types": [
           {
             "type": "procAttribute",
-            "named": true
-          },
-          {
-            "type": "procExternal",
             "named": true
           }
         ]
@@ -2832,10 +3005,6 @@
         },
         {
           "type": "kNil",
-          "named": true
-        },
-        {
-          "type": "kSpecialize",
           "named": true
         },
         {
@@ -2968,7 +3137,7 @@
     "named": true,
     "fields": {
       "body": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3033,16 +3202,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "pp",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -3110,10 +3269,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -3158,6 +3313,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -3244,6 +3403,10 @@
             "named": true
           },
           {
+            "type": "constDef",
+            "named": true
+          },
+          {
             "type": "for",
             "named": true
           },
@@ -3304,13 +3467,9 @@
         ]
       },
       "variable": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": ":",
-            "named": false
-          },
           {
             "type": "identifier",
             "named": true
@@ -3339,7 +3498,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "exprBinary",
@@ -3390,10 +3549,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -3421,7 +3576,7 @@
     "named": true,
     "fields": {
       "lhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3470,10 +3625,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -3581,7 +3732,7 @@
         ]
       },
       "rhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3630,10 +3781,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -3713,10 +3860,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -3754,7 +3897,7 @@
         ]
       },
       "entity": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3803,10 +3946,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -3834,7 +3973,7 @@
     "named": true,
     "fields": {
       "lhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3883,10 +4022,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -3918,7 +4053,7 @@
         ]
       },
       "rhs": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3970,10 +4105,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -3998,7 +4129,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -4050,10 +4181,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -4087,7 +4214,7 @@
         ]
       },
       "entity": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4136,10 +4263,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -4175,27 +4298,7 @@
             "named": false
           },
           {
-            "type": "exprBinary",
-            "named": true
-          },
-          {
-            "type": "exprBrackets",
-            "named": true
-          },
-          {
-            "type": "exprCall",
-            "named": true
-          },
-          {
             "type": "exprDot",
-            "named": true
-          },
-          {
-            "type": "exprParens",
-            "named": true
-          },
-          {
-            "type": "exprSubscript",
             "named": true
           },
           {
@@ -4203,49 +4306,13 @@
             "named": true
           },
           {
-            "type": "exprUnary",
-            "named": true
-          },
-          {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "inherited",
-            "named": true
-          },
-          {
-            "type": "kFalse",
-            "named": true
-          },
-          {
-            "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
-            "type": "kTrue",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "literalNumber",
-            "named": true
-          },
-          {
-            "type": "literalString",
             "named": true
           }
         ]
       },
       "entity": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4294,10 +4361,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -4339,7 +4402,7 @@
     "named": true,
     "fields": {
       "operand": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4388,10 +4451,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -4462,6 +4521,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -4552,6 +4615,10 @@
             "named": true
           },
           {
+            "type": "constDef",
+            "named": true
+          },
+          {
             "type": "for",
             "named": true
           },
@@ -4602,7 +4669,7 @@
         ]
       },
       "end": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4651,10 +4718,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -4738,6 +4801,10 @@
             "named": true
           },
           {
+            "type": "constDef",
+            "named": true
+          },
+          {
             "type": "for",
             "named": true
           },
@@ -4788,7 +4855,7 @@
         ]
       },
       "iterable": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4837,10 +4904,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -4862,7 +4925,7 @@
         ]
       },
       "iterator": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4914,10 +4977,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -4931,6 +4990,10 @@
           },
           {
             "type": "literalString",
+            "named": true
+          },
+          {
+            "type": "varLoopDef",
             "named": true
           }
         ]
@@ -4988,8 +5051,16 @@
         "required": false,
         "types": [
           {
-            "type": ":",
-            "named": false
+            "type": "kClass",
+            "named": true
+          },
+          {
+            "type": "kConstructor",
+            "named": true
+          },
+          {
+            "type": "kRecord",
+            "named": true
           },
           {
             "type": "typeref",
@@ -5060,10 +5131,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "operatorName",
             "named": true
           }
         ]
@@ -5142,7 +5209,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -5194,10 +5261,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -5221,7 +5284,7 @@
     "named": true,
     "fields": {
       "condition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -5273,10 +5336,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -5316,6 +5375,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -5389,7 +5452,7 @@
     "named": true,
     "fields": {
       "condition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -5441,10 +5504,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -5484,6 +5543,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -5554,6 +5617,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -5718,6 +5785,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -6004,10 +6075,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -6094,11 +6161,6 @@
     }
   },
   {
-    "type": "literalChar",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "literalNumber",
     "named": true,
     "fields": {}
@@ -6113,6 +6175,10 @@
       "types": [
         {
           "type": "literalChar",
+          "named": true
+        },
+        {
+          "type": "multilineString",
           "named": true
         }
       ]
@@ -6132,101 +6198,6 @@
         },
         {
           "type": "kDot",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "operatorName",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "kAdd",
-          "named": true
-        },
-        {
-          "type": "kAnd",
-          "named": true
-        },
-        {
-          "type": "kAssign",
-          "named": true
-        },
-        {
-          "type": "kDiv",
-          "named": true
-        },
-        {
-          "type": "kDot",
-          "named": true
-        },
-        {
-          "type": "kEq",
-          "named": true
-        },
-        {
-          "type": "kFdiv",
-          "named": true
-        },
-        {
-          "type": "kGt",
-          "named": true
-        },
-        {
-          "type": "kGte",
-          "named": true
-        },
-        {
-          "type": "kIn",
-          "named": true
-        },
-        {
-          "type": "kLt",
-          "named": true
-        },
-        {
-          "type": "kLte",
-          "named": true
-        },
-        {
-          "type": "kMod",
-          "named": true
-        },
-        {
-          "type": "kMul",
-          "named": true
-        },
-        {
-          "type": "kNeq",
-          "named": true
-        },
-        {
-          "type": "kNot",
-          "named": true
-        },
-        {
-          "type": "kOr",
-          "named": true
-        },
-        {
-          "type": "kShl",
-          "named": true
-        },
-        {
-          "type": "kShr",
-          "named": true
-        },
-        {
-          "type": "kSub",
-          "named": true
-        },
-        {
-          "type": "kXor",
           "named": true
         }
       ]
@@ -6290,10 +6261,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -6364,23 +6331,11 @@
           "named": true
         },
         {
-          "type": "kAlias",
-          "named": true
-        },
-        {
           "type": "kAssembler",
           "named": true
         },
         {
           "type": "kCdecl",
-          "named": true
-        },
-        {
-          "type": "kCppdecl",
-          "named": true
-        },
-        {
-          "type": "kCvar",
           "named": true
         },
         {
@@ -6412,7 +6367,7 @@
           "named": true
         },
         {
-          "type": "kHardfloat",
+          "type": "kFinal",
           "named": true
         },
         {
@@ -6420,11 +6375,7 @@
           "named": true
         },
         {
-          "type": "kInterrupt",
-          "named": true
-        },
-        {
-          "type": "kIocheck",
+          "type": "kLibraryHint",
           "named": true
         },
         {
@@ -6433,18 +6384,6 @@
         },
         {
           "type": "kMessage",
-          "named": true
-        },
-        {
-          "type": "kMs_abi_cdecl",
-          "named": true
-        },
-        {
-          "type": "kMs_abi_default",
-          "named": true
-        },
-        {
-          "type": "kMwpascal",
           "named": true
         },
         {
@@ -6468,10 +6407,6 @@
           "named": true
         },
         {
-          "type": "kNostackframe",
-          "named": true
-        },
-        {
           "type": "kOverload",
           "named": true
         },
@@ -6488,10 +6423,6 @@
           "named": true
         },
         {
-          "type": "kPublic",
-          "named": true
-        },
-        {
           "type": "kRegister",
           "named": true
         },
@@ -6504,18 +6435,6 @@
           "named": true
         },
         {
-          "type": "kSaveregisters",
-          "named": true
-        },
-        {
-          "type": "kSoftfloat",
-          "named": true
-        },
-        {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kStatic",
           "named": true
         },
@@ -6524,27 +6443,15 @@
           "named": true
         },
         {
-          "type": "kSysv_abi_cdecl",
-          "named": true
-        },
-        {
-          "type": "kSysv_abi_default",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
         {
-          "type": "kUnimplemented",
+          "type": "kUnsafe",
           "named": true
         },
         {
           "type": "kVarargs",
-          "named": true
-        },
-        {
-          "type": "kVectorcall",
           "named": true
         },
         {
@@ -6643,10 +6550,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -6732,9 +6635,9 @@
     "type": "raise",
     "named": true,
     "fields": {
-      "exception": {
-        "multiple": true,
-        "required": true,
+      "address": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "exprBinary",
@@ -6785,7 +6688,73 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
+            "type": "kTrue",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "literalNumber",
+            "named": true
+          },
+          {
+            "type": "literalString",
+            "named": true
+          }
+        ]
+      },
+      "exception": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "exprBinary",
+            "named": true
+          },
+          {
+            "type": "exprBrackets",
+            "named": true
+          },
+          {
+            "type": "exprCall",
+            "named": true
+          },
+          {
+            "type": "exprDot",
+            "named": true
+          },
+          {
+            "type": "exprParens",
+            "named": true
+          },
+          {
+            "type": "exprSubscript",
+            "named": true
+          },
+          {
+            "type": "exprTpl",
+            "named": true
+          },
+          {
+            "type": "exprUnary",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inherited",
+            "named": true
+          },
+          {
+            "type": "kFalse",
+            "named": true
+          },
+          {
+            "type": "kNil",
             "named": true
           },
           {
@@ -6808,9 +6777,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "kAtAddress",
+          "named": true
+        },
         {
           "type": "kRaise",
           "named": true
@@ -6875,10 +6848,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -6927,7 +6896,7 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -6983,10 +6952,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -7025,7 +6990,7 @@
         ]
       },
       "condition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -7074,10 +7039,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -7231,10 +7192,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -7258,7 +7215,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -7310,10 +7267,6 @@
           "named": true
         },
         {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
           "type": "kTrue",
           "named": true
         },
@@ -7354,6 +7307,10 @@
         },
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "constDef",
           "named": true
         },
         {
@@ -7482,7 +7439,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -7514,7 +7471,7 @@
           "named": true
         },
         {
-          "type": "pp",
+          "type": "declSubrange",
           "named": true
         },
         {
@@ -7527,92 +7484,13 @@
   {
     "type": "typeref",
     "named": true,
-    "fields": {
-      "_dummy": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "kSpecialize",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
-          "type": "exprBinary",
-          "named": true
-        },
-        {
-          "type": "exprBrackets",
-          "named": true
-        },
-        {
-          "type": "exprCall",
-          "named": true
-        },
-        {
-          "type": "exprDot",
-          "named": true
-        },
-        {
-          "type": "exprParens",
-          "named": true
-        },
-        {
-          "type": "exprSubscript",
-          "named": true
-        },
-        {
-          "type": "exprTpl",
-          "named": true
-        },
-        {
-          "type": "exprUnary",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inherited",
-          "named": true
-        },
-        {
-          "type": "kDeprecated",
-          "named": true
-        },
-        {
-          "type": "kFalse",
-          "named": true
-        },
-        {
-          "type": "kNil",
-          "named": true
-        },
-        {
-          "type": "kSpecialize",
-          "named": true
-        },
-        {
-          "type": "kTrue",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "literalNumber",
-          "named": true
-        },
-        {
-          "type": "literalString",
           "named": true
         },
         {
@@ -7854,6 +7732,16 @@
     "type": "varAssignDef",
     "named": true,
     "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": false,
@@ -7866,13 +7754,9 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
         {
           "type": "kVar",
           "named": true
@@ -7884,9 +7768,55 @@
     "type": "varDef",
     "named": true,
     "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": true,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "kVar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "varLoopDef",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "typeref",
@@ -7896,13 +7826,9 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
         {
           "type": "kVar",
           "named": true
@@ -7936,6 +7862,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -7989,7 +7919,7 @@
         ]
       },
       "condition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -8038,10 +7968,6 @@
           },
           {
             "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
             "named": true
           },
           {
@@ -8104,6 +8030,10 @@
           },
           {
             "type": "case",
+            "named": true
+          },
+          {
+            "type": "constDef",
             "named": true
           },
           {
@@ -8209,10 +8139,6 @@
             "named": true
           },
           {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
             "type": "kTrue",
             "named": true
           },
@@ -8245,10 +8171,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "#",
-    "named": false
   },
   {
     "type": "(",
@@ -8288,7 +8210,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "identifier",
@@ -8304,10 +8227,6 @@
   },
   {
     "type": "kAdd",
-    "named": true
-  },
-  {
-    "type": "kAlias",
     "named": true
   },
   {
@@ -8335,23 +8254,11 @@
     "named": true
   },
   {
-    "type": "kAssignAdd",
-    "named": true
-  },
-  {
-    "type": "kAssignDiv",
-    "named": true
-  },
-  {
-    "type": "kAssignMul",
-    "named": true
-  },
-  {
-    "type": "kAssignSub",
-    "named": true
-  },
-  {
     "type": "kAt",
+    "named": true
+  },
+  {
+    "type": "kAtAddress",
     "named": true
   },
   {
@@ -8380,14 +8287,6 @@
   },
   {
     "type": "kConstructor",
-    "named": true
-  },
-  {
-    "type": "kCppdecl",
-    "named": true
-  },
-  {
-    "type": "kCvar",
     "named": true
   },
   {
@@ -8479,6 +8378,10 @@
     "named": true
   },
   {
+    "type": "kFinal",
+    "named": true
+  },
+  {
     "type": "kFinalization",
     "named": true
   },
@@ -8499,10 +8402,6 @@
     "named": true
   },
   {
-    "type": "kGeneric",
-    "named": true
-  },
-  {
     "type": "kGoto",
     "named": true
   },
@@ -8512,10 +8411,6 @@
   },
   {
     "type": "kGte",
-    "named": true
-  },
-  {
-    "type": "kHardfloat",
     "named": true
   },
   {
@@ -8563,14 +8458,6 @@
     "named": true
   },
   {
-    "type": "kInterrupt",
-    "named": true
-  },
-  {
-    "type": "kIocheck",
-    "named": true
-  },
-  {
     "type": "kIs",
     "named": true
   },
@@ -8580,6 +8467,10 @@
   },
   {
     "type": "kLibrary",
+    "named": true
+  },
+  {
+    "type": "kLibraryHint",
     "named": true
   },
   {
@@ -8603,19 +8494,7 @@
     "named": true
   },
   {
-    "type": "kMs_abi_cdecl",
-    "named": true
-  },
-  {
-    "type": "kMs_abi_default",
-    "named": true
-  },
-  {
     "type": "kMul",
-    "named": true
-  },
-  {
-    "type": "kMwpascal",
     "named": true
   },
   {
@@ -8643,23 +8522,7 @@
     "named": true
   },
   {
-    "type": "kNostackframe",
-    "named": true
-  },
-  {
     "type": "kNot",
-    "named": true
-  },
-  {
-    "type": "kObjccategory",
-    "named": true
-  },
-  {
-    "type": "kObjcclass",
-    "named": true
-  },
-  {
-    "type": "kObjcprotocol",
     "named": true
   },
   {
@@ -8676,10 +8539,6 @@
   },
   {
     "type": "kOperator",
-    "named": true
-  },
-  {
-    "type": "kOptional",
     "named": true
   },
   {
@@ -8747,6 +8606,10 @@
     "named": true
   },
   {
+    "type": "kReadonly",
+    "named": true
+  },
+  {
     "type": "kRecord",
     "named": true
   },
@@ -8767,19 +8630,11 @@
     "named": true
   },
   {
-    "type": "kRequired",
-    "named": true
-  },
-  {
     "type": "kResourcestring",
     "named": true
   },
   {
     "type": "kSafecall",
-    "named": true
-  },
-  {
-    "type": "kSaveregisters",
     "named": true
   },
   {
@@ -8796,14 +8651,6 @@
   },
   {
     "type": "kShr",
-    "named": true
-  },
-  {
-    "type": "kSoftfloat",
-    "named": true
-  },
-  {
-    "type": "kSpecialize",
     "named": true
   },
   {
@@ -8831,14 +8678,6 @@
     "named": true
   },
   {
-    "type": "kSysv_abi_cdecl",
-    "named": true
-  },
-  {
-    "type": "kSysv_abi_default",
-    "named": true
-  },
-  {
     "type": "kThen",
     "named": true
   },
@@ -8863,11 +8702,11 @@
     "named": true
   },
   {
-    "type": "kUnimplemented",
+    "type": "kUnit",
     "named": true
   },
   {
-    "type": "kUnit",
+    "type": "kUnsafe",
     "named": true
   },
   {
@@ -8884,10 +8723,6 @@
   },
   {
     "type": "kVarargs",
-    "named": true
-  },
-  {
-    "type": "kVectorcall",
     "named": true
   },
   {
@@ -8911,11 +8746,24 @@
     "named": true
   },
   {
+    "type": "kWriteonly",
+    "named": true
+  },
+  {
     "type": "kXor",
     "named": true
   },
   {
-    "type": "pp",
+    "type": "literalChar",
     "named": true
+  },
+  {
+    "type": "multilineString",
+    "named": true
+  },
+  {
+    "type": "pp",
+    "named": true,
+    "extra": true
   }
 ]

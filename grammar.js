@@ -2,7 +2,7 @@
 
 // Support fpc's "public name" declaration hint, e.g.
 //     procedure foo; public name '_FOO';
-const public_name = true;
+const public_name = false;
 // Support extended RTTI attributes, e.g.
 //     [MyAttr(42)]
 //     procedure Foo;
@@ -10,15 +10,15 @@ const rtti        = true;
 // Support Delphi's anonymous procedures & functions.
 const lambda      = true;
 // Support fpc-specific features.
-const fpc         = true;
+const fpc         = false;
 // Support delphi-specific features.
 const delphi      = true;
 // Support FPC PasCocoa extensions (for objective c interopability)
-const objc        = true;
+const objc        = false;
 // Support generic types.
 const templates   = delphi || fpc;
 // Try to support preprocessor better.
-const use_pp      = true;
+const use_pp      = false;
 
 // Helpers
 
@@ -155,14 +155,14 @@ function statements(trailing) {
 
 		[rn('foreach'),     $ => seq(
 			$.kFor,
-			field('iterator', $._expr), $.kIn,
+			field('iterator', choice($._expr, $.varLoopDef)), $.kIn,
 			field('iterable', $._expr), $.kDo,
 			field('body', lastStatement($))
 		)],
 
 		[rn('exceptionHandler'), $ => seq(
 			$.kOn,
-			field('variable', optional(seq($.identifier, ':'))),
+			optional(seq(field('variable', $.identifier), ':')),
 			field('exception', $.typeref), $.kDo,
 			field('body', lastStatement($))
 		)],
@@ -232,7 +232,10 @@ function statements(trailing) {
 
 		[rn('raise'),       $ => seq(
 			$.kRaise,
-			field('exception', $._expr),
+			optional(seq(
+				field('exception', $._expr),
+				optional(seq($.kAtAddress, field('address', $._expr)))
+			)),
 			...semicolon
 		)],
 
@@ -246,6 +249,7 @@ function statements(trailing) {
 			...semicolon,
 			seq($.assignment, ...semicolon),
 			seq($.varDef, ...semicolon),
+			seq($.constDef, ...semicolon),
 			alias($[rn('statement')], $.statement),
 			alias($[rn('if')],        $.if),
 			alias($[rn('ifElse')],    $.ifElse),
@@ -270,6 +274,8 @@ module.exports = grammar({
 
 	extras: $ => [$._space, $.comment, $.pp],
 
+	externals: $ => [$.multilineString],
+
 	word: $ => $.identifier,
 
 	conflicts: $ => [
@@ -285,13 +291,17 @@ module.exports = grammar({
 		// RTTI attributes clash with fpc declaration hints syntax since both
 		// are surrounded by brackets.
 		...enable_if(rtti,
-			[ $.declProcFwd ], [ $.declVars], [ $.declConsts ], [ $.declTypes]
+			[ $.declVars], [ $.declConsts ], [ $.declTypes]
 		),
 		// `procedure (` could be a declaration of an anonymous procedure or
 		// the call of a function named "procedure" (which doesn't actually
 		// make sense, but for Treesitter it does), so we need another conflict
 		// here.
 		//...enable_if(lambda, [ $.lambda ]),
+		// Subrange types (`A.B..C`) start like type references.
+		[$._ref, $._typeref],
+		[$._ref, $._tplArg],
+		[$._ref, $.declEnumValue],
 	],
 
 	rules: {
@@ -351,12 +361,16 @@ module.exports = grammar({
 			),
 			$._expr
 		),
-		varAssignDef:          $ => seq($.kVar, $.identifier,
+		varAssignDef:          $ => seq($.kVar, field('name', $.identifier),
 			optional(seq(
 				':',
 				field('type', $.typeref)
 			))),
-		varDef:          $ => seq($.kVar, $.identifier, ':', field('type', $.typeref)),
+		varDef:          $ => seq($.kVar, field('name', $.identifier), ':', field('type', $.type)),
+		varLoopDef:      $ => seq($.kVar, field('name', $.identifier), optional(seq(':', field('type', $.typeref)))),
+		constDef:        $ => seq($.kConst, field('name', $.identifier),
+			optional(seq(':', field('type', $.type))),
+			field('defaultValue', $.defaultValue)),
 		label:           $ => seq($.identifier, ':'),
 		caseLabel:       $ => seq(delimited1(choice($._expr, $.range)), ':'),
 
@@ -470,14 +484,25 @@ module.exports = grammar({
 		// template. Then the existing node is simply "renamed". Because of
 		// this, we can't have an extra node in only one of the branches.
 		//
-		exprTpl:         $ => op.args(5, $._ref, $.kLt, delimited1($._expr, ',', 5),  $.kGt),
+		exprTpl:         $ => op.args(5, $._ref, $.kLt, delimited1($._tplArg, ',', 5),  $.kGt),
+		// Generic arguments in expressions must be types; restricting them
+		// lets GLR discard the generic reading of `F(a < b, c(d))`.
+		_tplArg:         $ => choice(
+			$.identifier, $.exprDot, $.exprTpl,
+			alias($.kString, $.identifier),
+		),
 		exprSubscript:   $ => op.args(5, $._ref, '[',   $.exprArgs,  ']'  ),
 		exprCall:        $ => op.args(5, $._ref, '(',   optional($.exprArgs), ')'  ),
 
 		// Pascal legacy string formatting for WriteLn(foo:4:3) etc.
 		legacyFormat:    $ => repeat1(seq(':', $._expr)),
 
-		exprArgs:        $ => delimited1(seq($._expr, optional($.legacyFormat))),
+		// Empty arguments are allowed for COM-style calls: Foo(,,1)
+		exprArgs:        $ => choice(
+			seq($._exprArg, repeat(seq(',', optional($._exprArg)))),
+			repeat1(seq(',', optional($._exprArg)))
+		),
+		_exprArg:        $ => seq($._expr, optional($.legacyFormat)),
 
 		exprBinary:      $ => choice(
 			op.infix(1, $._expr, $.kLt,  $._expr),
@@ -522,6 +547,7 @@ module.exports = grammar({
 
 		type:            $ => pp($,choice(
 			$.typeref,
+			$.declSubrange,
 			$.declMetaClass,
 			$.declEnum,
 			$.declSet,
@@ -534,7 +560,6 @@ module.exports = grammar({
 		typeref:         $ => seq(
 			...enable_if(fpc, field('_dummy', optional($.kSpecialize))),
 			$._typeref,
-			...enable_if(delphi, optional(seq($.kDeprecated, $._expr))),
 		),
 
 		_typeref:        $ => choice(
@@ -569,7 +594,9 @@ module.exports = grammar({
 		genericArgs:     $ => delimited1($.genericArg, ';'),
 		genericArg:      $ => seq(
 			field('name', delimited1($.identifier)),
-			field('type', optional(seq(':', $.typeref))),
+			optional(seq(':', delimited1(field('type', choice(
+				$.typeref, $.kClass, $.kRecord, $.kConstructor
+			))))),
 			field('defaultValue', optional($.defaultValue))
 		),
 
@@ -581,14 +608,15 @@ module.exports = grammar({
 			$.kNil, $.kTrue, $.kFalse
 		),
 		literalString:   $ => repeat1($._literalString),
-		_literalString:  $ => choice(/'[^']*'/, $.literalChar),
-		literalChar:     $ => seq('#', $._literalInt),
+		_literalString:  $ => choice(/'[^']*'/, $.literalChar, $.multilineString),
+		literalChar:     $ => token(seq('#', choice(/[0-9][0-9_]*/, /\$[a-fA-F0-9_]+/))),
 		literalNumber:   $ => choice($._literalInt, $._literalFloat),
 		_literalInt:     $ => choice(
-			token.immediate(/[-+]?[0-9]+/),
-			token.immediate(/\$[a-fA-F0-9]+/)
+			/[0-9][0-9_]*/,
+			/\$[a-fA-F0-9][a-fA-F0-9_]*/,
+			/%[01][01_]*/
 		),
-		_literalFloat:   $ => prec(10, /[-+]?[0-9]*\.?[0-9]+(e[+-]?[0-9]+)?/),
+		_literalFloat:   $ => /[0-9][0-9_]*(\.[0-9][0-9_]*([eE][+-]?[0-9]+)?|[eE][+-]?[0-9]+)/,
 
 		range:           $ => seq(
 			$._expr, '..', $._expr
@@ -641,7 +669,10 @@ module.exports = grammar({
 
 		// Declaration sections
 
-		declUses:        $ => seq($.kUses, delimited($.moduleName), ';'),
+		declUses:        $ => seq($.kUses, delimited(seq(
+			$.moduleName,
+			optional(seq($.kIn, field('path', $.literalString)))
+		)), ';'),
 		declExports:     $ => seq($.kExports, delimited($.declExport), ';'),
 
 		declTypes:       $ => seq(
@@ -676,9 +707,15 @@ module.exports = grammar({
 					$.declHelper,
 				)
 			),
+			optional($._typeHints),
 			';',
 			repeat($._procAttribute)
 		),
+
+		_typeHints:      $ => repeat1(choice(
+			seq($.kDeprecated, optional($.literalString)),
+			$.kPlatform, $.kExperimental, alias($.kLibrary, $.kLibraryHint)
+		)),
 
 		declProc:        $ => seq(
 			...enable_if(rtti, optional($.rttiAttributes)),
@@ -717,11 +754,12 @@ module.exports = grammar({
 		declEnum:        $ => seq('(', delimited1($.declEnumValue), ')'),
 		declEnumValue:   $ => seq(field('name', $.identifier), field('value', optional($.defaultValue))),
 		declSet:         $ => seq($.kSet, $.kOf, $.type),
+		declSubrange:    $ => prec.dynamic(-1, seq(field('low', $._expr), '..', field('high', $._expr))),
 		declArray:       $ => seq(
 			optional($.kPacked),
 			$.kArray,
 			optional(seq('[', delimited(choice($.range, $._expr)), ']')),
-			$.kOf, $.type
+			$.kOf, choice($.type, alias($.kConst, $.typeref))
 		),
 		declFile:        $ => seq($.kFile, optional(seq($.kOf, $.type))),
 		declString:      $ => prec.left(seq(
@@ -814,13 +852,16 @@ module.exports = grammar({
 			$.kProperty,
 			field('name', $.identifier),
 			field('args', optional($.declPropArgs)),
-			':',
-			field('type', $.type),
+			optional(seq(
+				':',
+				field('type', $.type),
+			)),
 			repeat(choice(
 				seq($.kIndex, field('index', $._expr)),
 				...enable_if(delphi, seq($.kDispId, field('dispid', $._expr))),
-				seq($.kRead, field('getter', $.identifier)),
-				seq($.kWrite, field('setter', $.identifier)),
+				seq($.kRead, field('getter', $._ref)),
+				seq($.kWrite, field('setter', $._ref)),
+				$.kReadonly, $.kWriteonly,
 				seq($.kImplements, field('implements', delimited($._expr))),
 				seq($.kDefault, field('defaultValue', $._expr)),
 				seq($.kStored, field('stored', $._expr)),
@@ -873,21 +914,26 @@ module.exports = grammar({
 				field('type', $.typeref),
 			)),
 			field('assign', optional($.defaultValue)),
-			';',
-			repeat($._procAttributeNoExt)
+			$._procTail
+		),
+
+		_procTail:       $ => choice(
+			seq(';', repeat($._procAttributeNoExt)),
+			repeat1($._procAttributeNoExt)
 		),
 
 		_declOperator:   $ => seq(
-			optional($.kClass),
+			$.kClass,
 			$.kOperator,
 			field('name', $._operatorName),
 			field('args', optional($.declArgs)),
 			...enable_if(fpc, field('resultName', optional($.identifier))),
-			':',
-			field('type', $.type),
+			optional(seq(
+				':',
+				field('type', $.type),
+			)),
 			field('assign', optional($.defaultValue)),
-			';',
-			repeat($._procAttributeNoExt)
+			$._procTail
 		),
 
 		operatorDot:     $ => op.infix(0, $._genericName, $.kDot, $.operatorName),
@@ -910,9 +956,10 @@ module.exports = grammar({
 
 		declArgs:        $ => seq('(', delimited($.declArg, ';'), ')'),
 
-		declArg:         $ => choice(
+		declArg:         $ => seq(optional($.rttiAttributes), choice(
 			seq(
 				choice($.kVar, $.kConst, $.kOut, $.kConstref),
+				optional($.rttiAttributes),
 				field('name', delimited1($.identifier)),
 				optional(seq(
 					':', field('type', $.type),
@@ -924,7 +971,7 @@ module.exports = grammar({
 				field('type', $.type),
 				field('defaultValue', optional($.defaultValue))
 			)
-		),
+		)),
 
 		// Attributes & declaration hints
 
@@ -939,9 +986,18 @@ module.exports = grammar({
 		)/*)*/,
 		_procAttributeNoExt: $ => /*pp($,*/ choice(
 			seq(field('attribute', $.procAttribute), ';'),
+			// The trailing semicolon after the last directive may be omitted.
+			prec.right(field('attribute', alias($._bareDirective, $.procAttribute))),
 			// FPC-specific syntax, e.g. procedure myproc; [public; alias:'bla'; cdecl];
 			...enable_if(fpc, seq('[', delimited(field('attribute', choice($.procAttribute)), ';'), ']', ';'))
 		)/*)*/,
+
+		_bareDirective:  $ => choice(
+			$.kStatic, $.kVirtual, $.kDynamic, $.kAbstract, $.kOverride,
+			$.kOverload, $.kReintroduce, $.kInline, $.kStdcall,
+			$.kCdecl, $.kPascal, $.kRegister, $.kSafecall, $.kAssembler,
+			$.kFinal,
+		),
 
 		procAttribute:   $ => choice(
 			$.kStatic, $.kVirtual, $.kDynamic, $.kAbstract, $.kOverride,
@@ -949,14 +1005,11 @@ module.exports = grammar({
 			$.kCdecl, $.kPascal, $.kRegister, $.kSafecall, $.kAssembler,
 			$.kNoreturn, $.kLocal,  $.kFar, $.kNear,
 			$.kDefault, $.kNodefault, $.kDeprecated, $.kExperimental,
+			$.kFinal, $.kPlatform, $.kVarargs, $.kWinapi, $.kExport, $.kUnsafe,
+			alias($.kLibrary, $.kLibraryHint),
 
-			seq(
-				choice(
-					seq($.kMessage, optional($.kName)),
-					$.kDeprecated
-				),
-				$._expr
-			),
+			seq($.kMessage, optional($.kName), $._expr),
+			seq($.kDeprecated, $.literalString),
 
 			...enable_if(fpc,
 				$.kPlatform, $.kUnimplemented,
@@ -1139,7 +1192,7 @@ module.exports = grammar({
 		kStatic:           $ => /static/i,
 		kVirtual:          $ => /virtual/i,
 		kAbstract:         $ => /abstract/i,
-		kSealed:           $ => /seled/i,
+		kSealed:           $ => /sealed/i,
 		kDynamic:          $ => /dynamic/i,
 		kOverride:         $ => /override/i,
 		kOverload:         $ => /overload/i,
@@ -1164,7 +1217,7 @@ module.exports = grammar({
 		kExport:           $ => /export/i,
 		kFar:              $ => /far/i,
 		kNear:             $ => /near/i,
-		kSafecall:         $ => /safecal/i,
+		kSafecall:         $ => /safecall/i,
 		kAssembler:        $ => /assembler/i,
 		kNostackframe:     $ => /nostackframe/i,
 		kInterrupt:        $ => /interrupt/i,
@@ -1184,6 +1237,11 @@ module.exports = grammar({
 		kAlias:            $ => /alias/i,
 		// Delphi
 		kDelayed:          $ => /delayed/i,
+		kFinal:            $ => /final/i,
+		kAtAddress:        $ => /at/i,
+		kReadonly:         $ => /readonly/i,
+		kWriteonly:        $ => /writeonly/i,
+		kUnsafe:           $ => /unsafe/i,
 
 		kNil:              $ => /nil/i,
 		kTrue:             $ => /true/i,
@@ -1193,7 +1251,7 @@ module.exports = grammar({
 		kIfndef:           $ => /ifndef/i,
 		kEndif:            $ => /endif/i,
 
-		identifier:        $ => /[&]?[a-zA-Z_]+[0-9_a-zA-Z]*/,
+		identifier:        $ => /[&]?[\p{L}_][\p{L}\p{N}_]*/,
 
 	  	_space:            $ => /[\s\r\n\t]+/,
 		pp:                $ => /\{\$[^}]*\}/,
